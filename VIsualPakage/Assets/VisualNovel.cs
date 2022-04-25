@@ -13,6 +13,8 @@ public class VisualNovel : MonoBehaviour
     [SerializeField]
     private VideoPlayer videoPlayer;
     [SerializeField]
+    private bool EventCG;
+    [SerializeField]
     private SpriteRenderer videoObject;
     [SerializeField]
     private Proflie[] proflie;
@@ -33,6 +35,7 @@ public class VisualNovel : MonoBehaviour
     private bool isTyping = false;
     private bool isAnimation = false;
     private bool isDialStart = true;
+
 
     private void Awake()
     {
@@ -281,6 +284,11 @@ public struct Proflie
 
 }
 
+public enum DialogueEvent
+{
+    EventCG, dialogue
+}
+
 [System.Serializable]
 public struct Dialogue
 {
@@ -308,6 +316,14 @@ public struct Dialogue
     [Header("대화")]
     [TextArea(3, 5)]
     public string DialogueComData;
+
+    [Header("이벤트 CG")]
+    public Sprite EventCGSprite;
+
+    [Header("대화 형태")]
+    public DialogueEvent dialogueEvent;
+
+
 }
 
 
