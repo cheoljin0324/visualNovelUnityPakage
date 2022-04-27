@@ -56,15 +56,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SelectScreen.cs" />
-    <Compile Include="Assets\SaveData.cs" />
-    <Compile Include="Assets\SaveManager.cs" />
-    <Compile Include="Assets\AudioManager.cs" />
-    <Compile Include="Assets\VisualNovel.cs" />
-    <Compile Include="Assets\PlayerData.cs" />
-    <Compile Include="Assets\FadeObject.cs" />
-    <Compile Include="Assets\DialgoueManager.cs" />
-    <Compile Include="Assets\사용법.cs" />
+    <Compile Include="Assets\Script\SelectScreen.cs" />
+    <Compile Include="Assets\Script\SaveData.cs" />
+    <Compile Include="Assets\Script\SaveManager.cs" />
+    <Compile Include="Assets\Script\AudioManager.cs" />
+    <Compile Include="Assets\Script\VisualNovel.cs" />
+    <Compile Include="Assets\Script\DialogueCLS.cs" />
+    <Compile Include="Assets\Script\PlayerData.cs" />
+    <Compile Include="Assets\Script\FadeObject.cs" />
+    <Compile Include="Assets\Script\사용법.cs" />
+    <Compile Include="Assets\Script\DialgoueManager.cs" />
+    <Compile Include="Assets\Script\VisualNovelProp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
