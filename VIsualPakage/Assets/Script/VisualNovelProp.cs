@@ -10,7 +10,7 @@ public class VisualNovelProp : Editor
 
     DialogueCLS dialCls;
 
-   void OnEnable()
+    void OnEnable()
     {
         dialCls = (DialogueCLS)target;
     }
@@ -18,19 +18,14 @@ public class VisualNovelProp : Editor
 
     public override void OnInspectorGUI()
     {
-        var list = dialCls.dialogueStructs;
-        int newCount = Mathf.Max(0, EditorGUILayout.IntField("size", list.Count));
-        while (newCount < list.Count)
-            list.RemoveAt(list.Count - 1);
-        while (newCount > list.Count)
-            list.Add(null);
 
-        for (int i = 0; i < list.Count; i++)
-        {
-            list[i] = (Bar)EditorGUILayout.ObjectField(list[i], typeof(Bar));
-        }
+        serializedObject.Update();
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("dialogueStructs"));
+        serializedObject.ApplyModifiedProperties();
 
     }
+}
 
 
 

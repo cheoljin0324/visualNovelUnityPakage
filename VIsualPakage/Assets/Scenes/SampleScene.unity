@@ -152,7 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84035ee42b43d764498260051249efcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueStructs: []
+  dialogueStructs:
+  - typeVisual: 0
+    humanCount: 0
+    backName: 
   backGroundList: []
 --- !u!4 &170781058
 Transform:
