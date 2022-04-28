@@ -8,6 +8,10 @@ namespace DSFEngine
 {
     public class DialogueCLS : MonoSingleton<DialogueCLS>
     {
+        [Header("생성 스프라이트")]
+        [SerializeField]
+        public GameObject stainding;
+
         [Header("캐릭터 정리")]
         [SerializeField]
         public Character[] characters;

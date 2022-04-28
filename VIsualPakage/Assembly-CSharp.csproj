@@ -67,9 +67,12 @@
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialougeFlow.cs" />
     <Compile Include="Assets\Script\PlayerData.cs" />
     <Compile Include="Assets\Script\FadeObject.cs" />
+    <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\Effect.cs" />
     <Compile Include="Assets\Script\사용법.cs" />
     <Compile Include="Assets\Script\DialgoueManager.cs" />
-    <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\Effect.cs" />
+    <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetName.cs" />
+    <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetStandCG.cs" />
+    <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetPosition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
