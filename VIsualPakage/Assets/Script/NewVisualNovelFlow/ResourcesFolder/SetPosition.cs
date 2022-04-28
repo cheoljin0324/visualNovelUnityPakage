@@ -10,6 +10,11 @@ namespace DSFEngine
         {
             return SetPos;
         }
+
+        public static void set(int a)
+        {
+            Debug.Log(a);
+        }
     }
 }
 

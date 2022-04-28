@@ -5,29 +5,32 @@ using UnityEngine;
 
 namespace DSFEngine
 {
-    public class SetStandCG : ScriptControler
+    public class SetStandCG : ScritControler
     {
 
+        public void Start()
+        {
+            
+        }
 
 
         public static void SetSprite(string CharID, int Emotion, int Pos)
         { 
-            for(int i = 0; i<DialogueCLS.Inst.characters.Length; i++)
-            {
-                if(CharID == DialogueCLS.Inst.characters[i].charName)
-                {
-                    if(Emotion == 0)
-                    {
-                        DialogueCLS.Inst.spriteRenderer[SetPos(Pos)].sprite = DialogueCLS.Inst.characters[i].MainChar;
-                    }
-                    else
-                    {
-                        DialogueCLS.Inst.spriteRenderer[SetPos(Pos)].sprite = DialogueCLS.Inst.characters[i].CharEmotion[Emotion];
-                    }
-                }
-       
-                
-            }
+            //for(int i = 0; i<DialogueCLS.Inst.characters.Length; i++)
+            //{
+            //    if(CharID == DialogueCLS.Inst.characters[i].charName)
+            //    {
+            //        if(Emotion == 0)
+            //        {
+            //            DialogueCLS.Inst.spriteRenderer[SetPos(Pos)].sprite = DialogueCLS.Inst.characters[i].MainChar;
+            //        }
+            //        else
+            //        {
+            //            DialogueCLS.Inst.spriteRenderer[SetPos(Pos)].sprite = DialogueCLS.Inst.characters[i].CharEmotion[Emotion];
+            //        }
+            //    }
+                  
+            //}
             
 
         }

@@ -45,7 +45,7 @@ namespace DSFEngine
     }
 
 
-        public class SayScript : ScriptControler
+        public class SayScript : ScritControler
     {
 
         public delegate void setDel(string CharID, int Emotion);
@@ -66,7 +66,7 @@ namespace DSFEngine
             dialogueStack.backNum_Id = backNum_Id;
             dialogueStack.fCPos = fCPos;
 
-            SetCg(fC_ID,femotion,fCPos);
+            //SetCg(fC_ID,femotion,fCPos);
 
         }
 
