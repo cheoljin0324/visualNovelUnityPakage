@@ -10,7 +10,7 @@ namespace DSFEngine
     {
         [Header("생성 스프라이트")]
         [SerializeField]
-        public GameObject stainding;
+        public SpriteRenderer[] spriteRenderer;
 
         [Header("캐릭터 정리")]
         [SerializeField]

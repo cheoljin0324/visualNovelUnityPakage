@@ -6,9 +6,9 @@ namespace DSFEngine
 {
     public class SetPosition : MonoBehaviour
     {
-        public static void setPosition(SpriteRenderer CGSprite)
+        public static int setPosition(int SetPos)
         {
-            CGSprite.transform.position = new Vector2(0, 0);
+            return SetPos;
         }
     }
 }

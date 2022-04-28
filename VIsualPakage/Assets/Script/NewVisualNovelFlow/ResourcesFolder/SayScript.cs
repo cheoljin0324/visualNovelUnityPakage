@@ -28,26 +28,25 @@ namespace DSFEngine
         public string tChar_ID;
 
         //감정
-        public string femotion;
-        public string semotion;
-        public string temotion;
+        public int femotion;
+        public int semotion;
+        public int temotion;
 
         //배경아이디
         public int backNum_Id;
 
         //위치
-        public string fCPos;
-        public string sCPos;
-        public string tCPos;
+        public int fCPos;
+        public int sCPos;
+        public int tCPos;
 
         //말하고 있는 캐릭터
         public int SayChar;
     }
 
 
-        public class SayScript : MonoBehaviour
-        {
-        public Action<string, string> SetSCG = SetStandCG.SetSprite;
+        public class SayScript : ScriptControler
+    {
 
         public delegate void setDel(string CharID, int Emotion);
         List<DialogueStack> dialogue;
@@ -56,7 +55,7 @@ namespace DSFEngine
             StartCoroutine(Set(a));
         }
 
-        public void Say(string DiallogueText, string fC_ID, string femotion, int backNum_Id, string fCPos)
+        public void Say(string DiallogueText, string fC_ID, int femotion, int backNum_Id, int fCPos)
         {
 
             DialogueStack dialogueStack;
@@ -67,10 +66,11 @@ namespace DSFEngine
             dialogueStack.backNum_Id = backNum_Id;
             dialogueStack.fCPos = fCPos;
 
-            SetSCG(fC_ID,femotion);
+            SetCg(fC_ID,femotion,fCPos);
+
         }
 
-        public void Say(string DiallogueText, string fC_ID, string sC_ID, string femotion, string semotion, int backNum_Id, int SayChar, string fCPos, string sCPos)
+        public void Say(string DiallogueText, string fC_ID, int femotion, int fCPos, string sC_ID, int semotion, int sCPos, int backNum_Id, int SayChar)
         {
             DialogueStack dialogueStack;
 
@@ -85,7 +85,7 @@ namespace DSFEngine
             dialogueStack.sCPos = sCPos;
         }
 
-        public void Say(string DiallogueText, string fC_ID, string sC_ID, string tC_ID, string femotion, string semotion, string tEmotion, int backNum_Id, int SayChar, string fCPos, string sCPos, string tCPos)
+        public void Say(string DiallogueText, string fC_ID, string sC_ID, string tC_ID, int femotion, int semotion, int tEmotion, int backNum_Id, int SayChar, int fCPos, int sCPos, int tCPos)
         {
             DialogueStack dialogueStack;
 

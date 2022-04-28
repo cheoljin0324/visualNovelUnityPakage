@@ -5,46 +5,39 @@ using UnityEngine;
 
 namespace DSFEngine
 {
-    public class SetStandCG : MonoBehaviour
+    public class SetStandCG : ScriptControler
     {
-        Action<SpriteRenderer> setPos;
-        private void Start()
-        {
-            setPos += SetPosition.setPosition;
-        }
 
 
 
-        public static void SetSprite(string CharID, int Emotion)
-        {
-            GameObject charSprite = Instantiate(DialogueCLS.Inst.stainding);
-            SpriteRenderer charSpriteRend = charSprite.GetComponent<SpriteRenderer>();
+        public static void SetSprite(string CharID, int Emotion, int Pos)
+        { 
             for(int i = 0; i<DialogueCLS.Inst.characters.Length; i++)
             {
                 if(CharID == DialogueCLS.Inst.characters[i].charName)
                 {
                     if(Emotion == 0)
                     {
-                        charSpriteRend.sprite = DialogueCLS.Inst.characters[i].MainChar;
+                        DialogueCLS.Inst.spriteRenderer[SetPos(Pos)].sprite = DialogueCLS.Inst.characters[i].MainChar;
                     }
                     else
                     {
-                        charSpriteRend.sprite = DialogueCLS.Inst.characters[i].CharEmotion[Emotion];
+                        DialogueCLS.Inst.spriteRenderer[SetPos(Pos)].sprite = DialogueCLS.Inst.characters[i].CharEmotion[Emotion];
                     }
                 }
-
+       
                 
             }
             
 
         }
 
-        public static void SetSprite(string fCharID, string sCharID)
+        public static void SetSprite(string fCharID, int fEmotion, int fPos, string sCharID , int sEmotion ,int sPos)
         {
 
         }
 
-        public static void SetSprite(string fCharID, string sCharID, string tCharID)
+        public static void SetSprite(string fCharID, int fEmotion, int fPos, string sCharID, int sEmotion, int sPos,string tCharID,int tEmotion, int tPos)
         {
 
         }
