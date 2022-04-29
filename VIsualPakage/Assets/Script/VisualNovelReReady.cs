@@ -71,7 +71,7 @@ public class VisualNovelReReady : MonoBehaviour
         //CG들어있는 만큼
         if (eventCGSets.Length > 0)
         {
-            for (int i = 0; i < eventCGSets.Length; ++i)
+            for (int i = 0; i < eventCGSets.Length; i++)
             {
                 //CG오브젝트 전부 꺼내준다.
                 SetObjects(eventCGSets[i], false);
@@ -127,11 +127,13 @@ public class VisualNovelReReady : MonoBehaviour
                     //해제
                     SetObjects(useCharacter[i], false);
                 }
+
                 if (eventCGSets.Length > 0)
                 {
                     for (int i = 0; i < eventCGSets.Length; i++)
                     {
                         SetObjects(eventCGSets[i], false);
+
                     }
                 }
                
@@ -173,34 +175,45 @@ public class VisualNovelReReady : MonoBehaviour
         //현재 대화 하고 있는 인물의 값을 적용
         currentMentCharIndex = dialogueMs[currentDialogueIndex].nowMent;
 
-        //사용되는 캐릭터에 있는 스프라이트 렌더러를 적용
-        useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].sprite = useCharacter[currentCharIndex[0]].charSpriteSet[dialogueMs[currentDialogueIndex].charSet[0].Emotion].charSprite;
-        //만약 사용되는 캐릭터가 1명보다 많을때
-        if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
+        if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.NormalDial)
         {
-            //두번째 캐릭터 적용
-            useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].sprite = useCharacter[currentCharIndex[1]].charSpriteSet[dialogueMs[currentDialogueIndex].charSet[1].Emotion].charSprite;
+            //사용되는 캐릭터에 있는 스프라이트 렌더러를 적용
+            useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].sprite = useCharacter[currentCharIndex[0]].charSpriteSet[dialogueMs[currentDialogueIndex].charSet[0].Emotion].charSprite;
+            //만약 사용되는 캐릭터가 1명보다 많을때
+            if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
+            {
+                //두번째 캐릭터 적용
+                useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].sprite = useCharacter[currentCharIndex[1]].charSpriteSet[dialogueMs[currentDialogueIndex].charSet[1].Emotion].charSprite;
+            }
+            //3명 보다 많을때
+            if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
+            {
+                //3명까지 적용
+                useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].sprite = useCharacter[currentCharIndex[2]].charSpriteSet[dialogueMs[currentDialogueIndex].charSet[2].Emotion].charSprite;
+            }
         }
-        //3명 보다 많을때
-        if(dialogueMs[currentDialogueIndex].charSet.Length > 2)
-        {
-            //3명까지 적용
-            useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].sprite = useCharacter[currentCharIndex[2]].charSpriteSet[dialogueMs[currentDialogueIndex].charSet[2].Emotion].charSprite;
-        }
+        
 
         //오브젝트를 전부 켜준다.
-        SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[0].charNumber], true);
-        //만약 1명보다 많으면
-        if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
+        if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.NormalDial)
         {
-          SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[1].charNumber], true);
+            SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[0].charNumber], true);
+            //만약 1명보다 많으면
+            if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
+            {
+                SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[1].charNumber], true);
+            }
+            //만약 2명보다 많으면
+            if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
+            {
+                SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[2].charNumber], true);
+            }
+            if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.EventCG)
+            {
+                SetObjects(eventCGSets[currenteventCG], true);
+            }
         }
-        //만약 2명보다 많으면
-        if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
-        {
-            SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[2].charNumber], true);
-        }
-        if(dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.EventCG)
+        else if(dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.EventCG)
         {
             SetObjects(eventCGSets[currenteventCG], true);
         }
@@ -248,17 +261,29 @@ public class VisualNovelReReady : MonoBehaviour
         if (currentDialogueIndex == 0)
         {
             useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].color = new Color(1, 1, 1, 0);
-            useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].DOFade(1f, 1f);
+            if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.NormalDial)
+            {
+                useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].DOFade(1f, 1f);
+            }
+
 
             if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
             {
                 useCharacter[1].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].color = new Color(1, 1, 1, 0);
-                useCharacter[1].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].DOFade(1f, 1f);
+                if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.NormalDial)
+                {
+                    useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].DOFade(1f, 1f);
+                }
+
             }
-            if(dialogueMs[currentDialogueIndex].charSet.Length > 2)
+            if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
             {
                 useCharacter[2].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].color = new Color(1, 1, 1, 0);
-                useCharacter[2].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].DOFade(1f, 1f);
+                if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.NormalDial)
+                {
+                    useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].DOFade(1f, 1f);
+                }
+
             }
         }
     }
@@ -276,11 +301,11 @@ public class VisualNovelReReady : MonoBehaviour
         {
             if (eventCGSets.Length > 0)
             {
-eventCG.eventRenderer.gameObject.SetActive(visable);
+            eventCG.eventRenderer.gameObject.SetActive(visable);
             useCharacter[currentMentCharIndex].nameText.gameObject.SetActive(visable);
             useCharacter[currentMentCharIndex].dialogueText.gameObject.SetActive(visable);
             useCharacter[currentMentCharIndex].dialRender.gameObject.SetActive(visable);
-            useCharacter[currentDialogueIndex].Arrow.gameObject.SetActive(false);
+            useCharacter[currentMentCharIndex].Arrow.gameObject.SetActive(false);
             }
             
         }
