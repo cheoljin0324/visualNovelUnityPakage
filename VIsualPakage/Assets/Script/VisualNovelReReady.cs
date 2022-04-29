@@ -32,14 +32,26 @@ public class VisualNovelReReady : MonoBehaviour
     private float typingSpd = 0.03f;
     //타이핑이 현재 진행중인가?
     private bool isTyping = false;
+    //현재 사용중인 이벤트CG
+    private int currenteventCG;
 
     private void Awake()
     {
         //초기 값으로 정해줄 사용되는 캐릭터 정수 초기화
         currentCharIndex[0] = dialogueMs[currentDialogueIndex + 1].charSet[0].charNumber;
-        currentCharIndex[1]= dialogueMs[currentDialogueIndex + 1].charSet[1].charNumber;
-        currentCharIndex[2]= dialogueMs[currentDialogueIndex + 1].charSet[2].charNumber;
-
+        if (dialogueMs[currentDialogueIndex+1].charSet.Length > 1)
+        {
+            currentCharIndex[1] = dialogueMs[currentDialogueIndex + 1].charSet[1].charNumber;
+        }
+        if (dialogueMs[currentDialogueIndex+1].charSet.Length > 2)
+        {
+            currentCharIndex[2] = dialogueMs[currentDialogueIndex + 1].charSet[2].charNumber;
+        }
+        
+        if (dialogueMs[currentDialogueIndex + 1].dialogueEvent == DialogueM.DialogueEvent.EventCG)
+        {
+            currenteventCG = dialogueMs[currentDialogueIndex + 1].EventCGSprite;
+        }
         //초기화
         SetScreen();
     }
@@ -54,7 +66,18 @@ public class VisualNovelReReady : MonoBehaviour
         {
             //캐릭터 있는 것들을 진행을 위해 우선 꺼준다.
             SetObjects(useCharacter[i], false);
+   
         }
+        //CG들어있는 만큼
+        if (eventCGSets.Length > 0)
+        {
+            for (int i = 0; i < eventCGSets.Length; ++i)
+            {
+                //CG오브젝트 전부 꺼내준다.
+                SetObjects(eventCGSets[i], false);
+            }
+        }
+        
     }
 
     /// <summary>
@@ -82,7 +105,7 @@ public class VisualNovelReReady : MonoBehaviour
                 //타이핑을 종료
                 isTyping = false;
                 //타이핑 하고 있던 코루틴을 종료
-                StopCoroutine("Ontyping");
+               // StopCoroutine("Ontyping");
                 //타이핑 하던 텍스트를 순간적으로 대화 완성본으로 초기화
                 useCharacter[currentMentCharIndex].dialogueText.text = dialogueMs[currentDialogueIndex].DialogueData;
                 //끝났다는 화살표를 표기
@@ -104,6 +127,14 @@ public class VisualNovelReReady : MonoBehaviour
                     //해제
                     SetObjects(useCharacter[i], false);
                 }
+                if (eventCGSets.Length > 0)
+                {
+                    for (int i = 0; i < eventCGSets.Length; i++)
+                    {
+                        SetObjects(eventCGSets[i], false);
+                    }
+                }
+               
                 //트루를 반환하면서 다음 함수 진행되게 함
                 return true;
             }
@@ -117,29 +148,28 @@ public class VisualNovelReReady : MonoBehaviour
     /// </summary>
     public void SetNextDialogue()
     {
-        //만약 다이얼로그 형식이 노멀일 경우
-        if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.NormalDial)
-        {
-            //우선적으로 지금 현재 쓰고 있던 캐릭터 값들은 전부 false 로 종료
-            SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[0].charNumber], false);
-            SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[1].charNumber], false);
-            SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[2].charNumber], false);
-        }
-        else if(dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.EventCG)
-        {
-
-        }
-
-        //다음 대화창으로 넘긴다.
         currentDialogueIndex++;
 
         //다음 대화창에 있는 값들을 전부 적용
         currentCharIndex[0] = dialogueMs[currentDialogueIndex].charSet[0].charNumber;
-        currentCharIndex[1] = dialogueMs[currentDialogueIndex].charSet[1].charNumber;
-        currentCharIndex[2] = dialogueMs[currentDialogueIndex].charSet[2].charNumber;
+        if(dialogueMs[currentDialogueIndex].charSet.Length > 1)
+        {
+            currentCharIndex[1] = dialogueMs[currentDialogueIndex].charSet[1].charNumber;
+        }
+
+        if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
+        {
+            currentCharIndex[2] = dialogueMs[currentDialogueIndex].charSet[2].charNumber;
+        }
+
+        if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.EventCG)
+        {
+            currentDialogueIndex = dialogueMs[currentDialogueIndex].EventCGSprite;
+        }
+        
 
         //만약 다음 대화 내용 중 /플레이어/ 라는 키워드가 있을때 맨 위에 선언해준 이름으로 변경
-        dialogueMs[currentDialogueIndex].DialogueData = dialogueMs[currentDialogueIndex].DialogueData.Replace("/플레이어/", name);
+        dialogueMs[currentDialogueIndex].DialogueData = dialogueMs[currentDialogueIndex].DialogueData.Replace("/플레이어/", playerName);
         //현재 대화 하고 있는 인물의 값을 적용
         currentMentCharIndex = dialogueMs[currentDialogueIndex].nowMent;
 
@@ -159,16 +189,20 @@ public class VisualNovelReReady : MonoBehaviour
         }
 
         //오브젝트를 전부 켜준다.
-        SetObjects(useCharacter[0], true);
+        SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[0].charNumber], true);
         //만약 1명보다 많으면
         if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
         {
-          SetObjects(useCharacter[1], true);
+          SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[1].charNumber], true);
         }
         //만약 2명보다 많으면
         if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
         {
-            SetObjects(useCharacter[2], true);
+            SetObjects(useCharacter[dialogueMs[currentDialogueIndex].charSet[2].charNumber], true);
+        }
+        if(dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.EventCG)
+        {
+            SetObjects(eventCGSets[currenteventCG], true);
         }
 
         //만약 말하는 이가 /플레이어/ 라는 이름을 가지고 있을때
@@ -184,7 +218,7 @@ public class VisualNovelReReady : MonoBehaviour
         useCharacter[currentMentCharIndex].dialogueText.text = dialogueMs[currentDialogueIndex].DialogueData;
 
         //타이핑 기능실행
-        StartCoroutine("OnTyping");
+       // StartCoroutine("OnTyping");
     }
 
     /// <summary>
@@ -204,7 +238,11 @@ public class VisualNovelReReady : MonoBehaviour
         }
         else if(visable == false)
         {
+            useChar.dialRender.gameObject.SetActive(visable);
+            useChar.dialogueText.gameObject.SetActive(visable);
+            useChar.nameText.gameObject.SetActive(visable);
 
+            useChar.Arrow.gameObject.SetActive(false);
         }
 
         if (currentDialogueIndex == 0)
@@ -226,7 +264,26 @@ public class VisualNovelReReady : MonoBehaviour
     }
     private void SetObjects(EventCGSet eventCG,bool visable)
     {
-
+        if(visable == true)
+        {
+            eventCG.eventRenderer.gameObject.SetActive(visable);
+            useCharacter[currentMentCharIndex].nameText.gameObject.SetActive(visable);
+            useCharacter[currentMentCharIndex].dialogueText.gameObject.SetActive(visable);
+            useCharacter[currentMentCharIndex].dialRender.gameObject.SetActive(visable);
+            useCharacter[currentDialogueIndex].Arrow.gameObject.SetActive(false);
+        }
+        else if(visable == false)
+        {
+            if (eventCGSets.Length > 0)
+            {
+eventCG.eventRenderer.gameObject.SetActive(visable);
+            useCharacter[currentMentCharIndex].nameText.gameObject.SetActive(visable);
+            useCharacter[currentMentCharIndex].dialogueText.gameObject.SetActive(visable);
+            useCharacter[currentMentCharIndex].dialRender.gameObject.SetActive(visable);
+            useCharacter[currentDialogueIndex].Arrow.gameObject.SetActive(false);
+            }
+            
+        }
     }
 
 }
@@ -244,17 +301,27 @@ public struct CharSpriteSet
     [Header("캐릭터 스프라이트 목록")]
     public Sprite charSprite;
     [Header("캐릭터 해당 스프라이트 이름")]
-    public string EmotionName;
+    public int EmotionName;
 }
 
 //사용할 이벤트 CG(EventCG(sprite),CGName(string)
 [System.Serializable]
 public struct EventCGSet
 {
+    [Header("사용할 CG렌더러")]
+    public SpriteRenderer eventRenderer;
+    [Header("다이얼로그 박스")]
+    public SpriteRenderer dialogueEvent;
+    [Header("다이얼 네임- 텍스트")]
+    public Text nameText;
+    [Header("다이얼 텍스트")]
+    public Text dialText;
     [Header("사용할 이벤트 CG")]
     public Sprite EventCG;
+    [Header("이벤트 CG 다이얼 종료")]
+    public SpriteRenderer Arrow;
     [Header("CG이름")]
-    public string CGName;
+    public int CGName;
 }
 
 //배경 정리(backSprite(Sprite), backName(string))
@@ -296,7 +363,7 @@ public struct CharSet
 {
     [Header("사용 캐릭터(정수)")]
     public int charNumber;
-    [Header("사용 감정(문자)")]
+    [Header("사용 감정(정수)")]
     public int Emotion;
 }
 
@@ -332,7 +399,7 @@ public struct DialogueM
     public AudioClip audioClip;
 
     [Header("사용할 이벤트 CG")]
-    public string EventCGSprite;
+    public int EventCGSprite;
 
 
 }
