@@ -283,9 +283,16 @@ MonoBehaviour:
     dialogueEvent: {fileID: 465854590}
     nameText: {fileID: 774553568}
     dialText: {fileID: 2075759540}
-    EventCG: {fileID: 21300000, guid: 296939c899e0b224fa1c04d86c7fb3cc, type: 3}
+    EventCG: {fileID: 21300000, guid: 2f2725a818452b940b5f9996aeea4b73, type: 3}
     Arrow: {fileID: 1028906762}
     CGName: 0
+  - eventRenderer: {fileID: 618212886}
+    dialogueEvent: {fileID: 465854590}
+    nameText: {fileID: 774553568}
+    dialText: {fileID: 2075759540}
+    EventCG: {fileID: 21300000, guid: 296939c899e0b224fa1c04d86c7fb3cc, type: 3}
+    Arrow: {fileID: 1028906762}
+    CGName: 1
   useCharacter:
   - Name: 000
     charSpriteSet:
@@ -313,7 +320,7 @@ MonoBehaviour:
     Arrow: {fileID: 1028906762}
   backScreen: []
   dialogueMs:
-  - dialogueEvent: 1
+  - dialogueEvent: 0
     DialogueData: "\uD14C\uC2A4\uD2B8 /\uD50C\uB808\uC774\uC5B4/"
     charSet:
     - charNumber: 0
@@ -322,11 +329,25 @@ MonoBehaviour:
       Emotion: 0
     charintPos: 0200000001000000
     nowMent: 0
+    zoom: 0
     isAngry: 0
     backName: 
     useVideo: {fileID: 0}
     audioClip: {fileID: 0}
     EventCGSprite: 0
+  - dialogueEvent: 0
+    DialogueData: "\uD750\uC5B4"
+    charSet:
+    - charNumber: 0
+      Emotion: 0
+    charintPos: 01000000
+    nowMent: 0
+    zoom: 1
+    isAngry: 0
+    backName: 
+    useVideo: {fileID: 0}
+    audioClip: {fileID: 0}
+    EventCGSprite: 1
 --- !u!4 &497128220
 Transform:
   m_ObjectHideFlags: 0
@@ -567,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 618212885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.93, y: 0.93, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -727,8 +748,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983523449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -2, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: -6, y: -2.5, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -891,8 +912,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232272018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1074,8 +1095,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060884705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: -2, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: 7, y: -2.5, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
