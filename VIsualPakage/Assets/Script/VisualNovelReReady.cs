@@ -115,8 +115,12 @@ public class VisualNovelReReady : MonoBehaviour
             //만약 이게 마지막 대화창이 아닐 경우
             if (dialogueMs.Length > currentDialogueIndex + 1)
             {
+                useCharacter[currentCharIndex[0]].spriteRenderers[0].gameObject.SetActive(false);
+                useCharacter[currentCharIndex[0]].spriteRenderers[1].gameObject.SetActive(false);
+                useCharacter[currentCharIndex[0]].spriteRenderers[2].gameObject.SetActive(false);
                 //다음 대화창 실행
                 SetNextDialogue();
+
             }
             //만약 이게 마지막 대화창일 경우
             else
@@ -181,7 +185,9 @@ public class VisualNovelReReady : MonoBehaviour
             if (dialogueMs[currentDialogueIndex].zoom == true)
             {
                 useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale = new UnityEngine.Vector3(useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.x * 2, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.y * 2, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.z);
+                useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position = new UnityEngine.Vector3(useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.x+1, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.y - 6, 0);
             }
+            useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].gameObject.SetActive(true);
             //만약 사용되는 캐릭터가 1명보다 많을때
             if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
             {
@@ -191,6 +197,7 @@ public class VisualNovelReReady : MonoBehaviour
                 {
                     useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale = new UnityEngine.Vector3(useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale.x * 2, useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale.y * 2, useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale.z);
                 }
+                useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].gameObject.SetActive(true);
             }
             //3명 보다 많을때
             if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
@@ -201,6 +208,7 @@ public class VisualNovelReReady : MonoBehaviour
                 {
                     useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale = new UnityEngine.Vector3(useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale.x * 2, useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale.y * 2, useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale.z);
                 }
+                useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].gameObject.SetActive(true);
             }
         }
         if (dialogueMs[currentDialogueIndex].dialogueEvent == DialogueM.DialogueEvent.EventCG)
@@ -261,9 +269,10 @@ public class VisualNovelReReady : MonoBehaviour
                 useChar.dialRender.gameObject.SetActive(visable);
                 useChar.dialogueText.gameObject.SetActive(visable);
                 useChar.nameText.gameObject.SetActive(visable);
+            useChar.spriteRenderers[0].gameObject.SetActive(visable);
 
-                useChar.Arrow.gameObject.SetActive(false);
-                useChar.spriteRenderers[0].gameObject.SetActive(visable);
+            useChar.Arrow.gameObject.SetActive(false);
+
 
             if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
             {
