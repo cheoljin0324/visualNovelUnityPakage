@@ -22,6 +22,7 @@ public class VisualNovelReReady : MonoBehaviour
     private bool isFirst = true;
     //자동으로 진행이 되는가?
     private bool isAuto = true;
+    public bool autoFlow;
     //현재 다이얼로그 진행도
     private int currentDialogueIndex = -1;
     //캐릭터 정수(최대 3명)
@@ -34,8 +35,17 @@ public class VisualNovelReReady : MonoBehaviour
     private float typingSpd = 0.03f;
     //타이핑이 현재 진행중인가?
     private bool isTyping = false;
+
+    private bool fast;
+
+    private float fadeTime = 0.5f;
     //현재 사용중인 이벤트CG
     private int currenteventCG;
+    private bool isFade = false;
+
+    float timer = 0f;
+    float waitTime = 1.2f;
+
 
     private void Awake()
     {
@@ -58,6 +68,18 @@ public class VisualNovelReReady : MonoBehaviour
         }
         //초기화
         SetScreen();
+    }
+
+    private void Start()
+    {
+        FastMode();
+    }
+
+    void FastMode()
+    {
+        waitTime = waitTime / 10;
+        typingSpd /= 15;
+
     }
 
     /// <summary>
@@ -101,57 +123,107 @@ public class VisualNovelReReady : MonoBehaviour
         }
 
         //만약 마우스 버튼(0)을 누를 경우
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)||autoFlow == true)
         {
-            //만약 타이핑 도중이었다면
-            if (isTyping == true)
+            if (timer > waitTime)
             {
-                //타이핑을 종료
-                isTyping = false;
-                //타이핑 하고 있던 코루틴을 종료
-                StopCoroutine("Ontyping");
-                //타이핑 하던 텍스트를 순간적으로 대화 완성본으로 초기화
-                useCharacter[currentMentCharIndex].dialogueText.text = dialogueMs[currentDialogueIndex].DialogueData;
-                //끝났다는 화살표를 표기
-                useCharacter[currentMentCharIndex].Arrow.gameObject.SetActive(true);
-            }
-
-            //만약 이게 마지막 대화창이 아닐 경우
-            if (dialogueMs.Length > currentDialogueIndex + 1)
-            {
-                StartCoroutine(FadeOut(0));
-                StartCoroutine(FadeOut(1));
-                StartCoroutine(FadeOut(2));
-                StartCoroutine(FalseOb(false));
-
-                Invoke("SetNextDialogue", 0.5f);
-
-
-            }
-            //만약 이게 마지막 대화창일 경우
-            else
-            {
-                //모든 캐릭터에 있는 수치를
-                for (int i = 0; i < useCharacter.Length; ++i)
+                timer = 0;
+                if (dialogueMs[currentDialogueIndex].zoom == true && dialogueMs[currentDialogueIndex + 1].zoom == false)
                 {
-                    //해제
-                    SetObjects(useCharacter[i], false);
+                    useCharacter[0].spriteRenderers[1].transform.localScale = new UnityEngine.Vector3(useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.x / 2, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.y / 2, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.z);
+                    useCharacter[0].spriteRenderers[1].transform.position = new UnityEngine.Vector3(useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.x - 1, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.y + 6, 0);
+                }
+                //만약 타이핑 도중이었다면
+                if (isTyping == true)
+                {
+                    //타이핑을 종료
+                    isTyping = false;
+                    //타이핑 하고 있던 코루틴을 종료
+                    StopCoroutine("Ontyping");
+                    //타이핑 하던 텍스트를 순간적으로 대화 완성본으로 초기화
+                    useCharacter[currentMentCharIndex].dialogueText.text = dialogueMs[currentDialogueIndex].DialogueData;
+                    //끝났다는 화살표를 표기
+                    useCharacter[currentMentCharIndex].Arrow.gameObject.SetActive(true);
+                }
+                if (isFade == true)
+                {
+                    useCharacter[0].spriteRenderers[0].color = new Color(1, 1, 1, 0);
+                    useCharacter[0].spriteRenderers[1].color = new Color(1, 1, 1, 0);
+                    useCharacter[0].spriteRenderers[2].color = new Color(1, 1, 1, 0);
+
+                    isFade = false;
                 }
 
-                if (eventCGSets.Length > 0)
+                //만약 이게 마지막 대화창이 아닐 경우
+                if (dialogueMs.Length > currentDialogueIndex + 1)
                 {
-                    for (int i = 0; i < eventCGSets.Length; i++)
+                    if (dialogueMs[currentDialogueIndex].oneFade == true)
                     {
-                        SetObjects(eventCGSets[i], false);
+                        isFade = true;
+                        StartCoroutine(FadeOut(0));
                     }
+                    if (dialogueMs[currentDialogueIndex].twoFade == true)
+                    {
+                        isFade = true;
+                        StartCoroutine(FadeOut(1));
+
+                    }
+                    else
+                    {
+                        useCharacter[0].spriteRenderers[1].color = new Color(1, 1, 1, 0);
+                    }
+                    if (dialogueMs[currentDialogueIndex].threeFade == true)
+                    {
+                        isFade = true;
+                        StartCoroutine(FadeOut(2));
+                    }
+                    else
+                    {
+                        useCharacter[0].spriteRenderers[2].color = new Color(1, 1, 1, 0);
+                    }
+                    StartCoroutine(FalseOb(false));
+                    if (dialogueMs[currentDialogueIndex].oneFade == true || dialogueMs[currentDialogueIndex].twoFade == true || dialogueMs[currentDialogueIndex].threeFade == true)
+                    {
+                        Invoke("SetNextDialogue", 1.5f);
+                    }
+                    else
+                    {
+                        SetNextDialogue();
+                    }
+
                 }
-               
-                //트루를 반환하면서 다음 함수 진행되게 함
-                return true;
+
+                //만약 이게 마지막 대화창일 경우
+                else
+                {
+                    //모든 캐릭터에 있는 수치를
+                    for (int i = 0; i < useCharacter.Length; ++i)
+                    {
+                        //해제
+                        SetObjects(useCharacter[i], false);
+                    }
+
+                    if (eventCGSets.Length > 0)
+                    {
+                        for (int i = 0; i < eventCGSets.Length; i++)
+                        {
+                            SetObjects(eventCGSets[i], false);
+                        }
+                    }
+
+                    //트루를 반환하면서 다음 함수 진행되게 함
+                    return true;
+                }
+
             }
         }
         //아닐 경우는 항상 false로 해당 함수에 머물게 함
         return false;
+    }
+
+    public void Update()
+    {
+        timer += Time.deltaTime;
     }
 
     /// <summary>
@@ -159,6 +231,7 @@ public class VisualNovelReReady : MonoBehaviour
     /// </summary>
     public void SetNextDialogue()
     {
+        
         currentDialogueIndex++;
 
         //다음 대화창에 있는 값들을 전부 적용
@@ -396,7 +469,7 @@ public class VisualNovelReReady : MonoBehaviour
 
     IEnumerator FadeIn(int val)
     {
-        useCharacter[0].spriteRenderers[val].DOFade(1f, 0.5f);
+        useCharacter[0].spriteRenderers[val].DOFade(1f, fadeTime);
 
 
         yield return new WaitForSeconds(0.5f);
@@ -404,9 +477,11 @@ public class VisualNovelReReady : MonoBehaviour
 
     IEnumerator FadeOut(int val)
     {
-        useCharacter[0].spriteRenderers[val].DOFade(0f, 0.5f);
+        isFade = true;
+        useCharacter[0].spriteRenderers[val].DOFade(0f, fadeTime);
 
         yield return new WaitForSeconds(0.5f);
+        isFade = false;
     }
 
     IEnumerator FalseOb(bool visable)
@@ -532,6 +607,11 @@ public struct DialogueM
     public int nowMent;
     [Header("줌 인")]
     public bool zoom;
+
+    [Header("애니매이션")]
+    public bool oneFade;
+    public bool twoFade;
+    public bool threeFade;
 
     [Header("화난 효과")]
     public bool isAngry;
