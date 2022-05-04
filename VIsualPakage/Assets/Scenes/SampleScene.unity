@@ -294,7 +294,7 @@ MonoBehaviour:
     useVideo: {fileID: 0}
     audioClip: {fileID: 0}
     EventCGSprite: 1
-  autoFlow: 1
+  autoFlow: 0
 --- !u!4 &497128220
 Transform:
   m_ObjectHideFlags: 0

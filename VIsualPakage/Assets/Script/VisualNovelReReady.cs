@@ -36,15 +36,13 @@ public class VisualNovelReReady : MonoBehaviour
     //타이핑이 현재 진행중인가?
     private bool isTyping = false;
 
-    private bool fast;
-
-    private float fadeTime = 0.5f;
+    private float fadeTime = 0.07f;
     //현재 사용중인 이벤트CG
     private int currenteventCG;
     private bool isFade = false;
 
     float timer = 0f;
-    float waitTime = 1.2f;
+    float waitTime = 1f;
 
 
     private void Awake()
@@ -70,17 +68,23 @@ public class VisualNovelReReady : MonoBehaviour
         SetScreen();
     }
 
-    private void Start()
-    {
-        FastMode();
-    }
+    //void FastMode()
+    //{
+    //    waitTime = waitTime / 10;
+    //    typingSpd /= 15;
 
-    void FastMode()
-    {
-        waitTime = waitTime / 10;
-        typingSpd /= 15;
+    //}
 
-    }
+    //void offFast()
+    //{
+    //    waitTime = waitTime * 10;
+    //    typingSpd *= 15;
+
+    //    if (fast == true)
+    //    {
+    //        FastMode();
+    //    }
+    //}
 
     /// <summary>
     /// 초기화 함수
@@ -125,6 +129,7 @@ public class VisualNovelReReady : MonoBehaviour
         //만약 마우스 버튼(0)을 누를 경우
         if (Input.GetMouseButtonDown(0)||autoFlow == true)
         {
+            
             if (timer > waitTime)
             {
                 timer = 0;
@@ -221,11 +226,6 @@ public class VisualNovelReReady : MonoBehaviour
         return false;
     }
 
-    public void Update()
-    {
-        timer += Time.deltaTime;
-    }
-
     /// <summary>
     /// 다음 대화 진행
     /// </summary>
@@ -233,6 +233,7 @@ public class VisualNovelReReady : MonoBehaviour
     {
         
         currentDialogueIndex++;
+
 
         //다음 대화창에 있는 값들을 전부 적용
         currentCharIndex[0] = dialogueMs[currentDialogueIndex].charSet[0].charNumber;
@@ -339,6 +340,11 @@ public class VisualNovelReReady : MonoBehaviour
 
         //타이핑 기능실행
         StartCoroutine("Ontyping");
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
     }
 
     /// <summary>
@@ -472,7 +478,7 @@ public class VisualNovelReReady : MonoBehaviour
         useCharacter[0].spriteRenderers[val].DOFade(1f, fadeTime);
 
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(fadeTime+0.1f);
     }
 
     IEnumerator FadeOut(int val)
@@ -480,7 +486,7 @@ public class VisualNovelReReady : MonoBehaviour
         isFade = true;
         useCharacter[0].spriteRenderers[val].DOFade(0f, fadeTime);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(fadeTime + 0.1f);
         isFade = false;
     }
 
