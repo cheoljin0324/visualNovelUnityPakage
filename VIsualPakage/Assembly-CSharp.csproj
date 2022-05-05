@@ -75,6 +75,7 @@
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetStandCG.cs" />
     <Compile Include="Assets\Script\VisualNovel.cs" />
     <Compile Include="Assets\Script\DialgoueManager.cs" />
+    <Compile Include="Assets\Script\LoadScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

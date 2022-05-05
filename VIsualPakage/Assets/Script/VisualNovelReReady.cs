@@ -32,11 +32,11 @@ public class VisualNovelReReady : MonoBehaviour
     //배경 정수 아이디
     private int currentBackNum;
     //타이핑 효과에서 쓰일 타이핑 속도
-    private float typingSpd = 0.03f;
+    private float typingSpd = 0.06f;
     //타이핑이 현재 진행중인가?
     private bool isTyping = false;
 
-    private float fadeTime = 0.07f;
+    private float fadeTime = 0.2f;
     //현재 사용중인 이벤트CG
     private int currenteventCG;
     private bool isFade = false;
@@ -118,6 +118,7 @@ public class VisualNovelReReady : MonoBehaviour
         //현재 첫 번째 대화창인가?
         if(isFirst == true)
         {
+            Debug.Log("SET");
             //초기화
             SetScreen();
             //자동 시작일 경우 자동으로 다음 대화 실행
@@ -129,7 +130,6 @@ public class VisualNovelReReady : MonoBehaviour
         //만약 마우스 버튼(0)을 누를 경우
         if (Input.GetMouseButtonDown(0)||autoFlow == true)
         {
-            
             if (timer > waitTime)
             {
                 timer = 0;
@@ -486,7 +486,7 @@ public class VisualNovelReReady : MonoBehaviour
         isFade = true;
         useCharacter[0].spriteRenderers[val].DOFade(0f, fadeTime);
 
-        yield return new WaitForSeconds(fadeTime + 0.1f);
+        yield return new WaitForSeconds(0.1f);
         isFade = false;
     }
 
