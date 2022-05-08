@@ -377,7 +377,7 @@ MonoBehaviour:
     backName: 1
   dialogueMs:
   - dialogueEvent: 0
-    DialogueData: "\uD14C\uC2A4\uD2B8 /\uD50C\uB808\uC774\uC5B4/"
+    DialogueData: 0023152
     charSet:
     - charNumber: 0
       Emotion: 0
@@ -1175,7 +1175,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -36,7 +36,7 @@ public class VisualNovelReReady : MonoBehaviour
     //타이핑이 현재 진행중인가?
     private bool isTyping = false;
 
-    private float fadeTime = 0.2f;
+    private float fadeTime = 0.4f;
     //현재 사용중인 이벤트CG
     private int currenteventCG;
     private bool isFade = false;
@@ -110,6 +110,19 @@ public class VisualNovelReReady : MonoBehaviour
         
     }
 
+    void SetPosDial()
+    {
+        useCharacter[0].dialRender.DOFade(1f, 0.5f);
+        useCharacter[0].nameText.DOFade(1f, 0.5f);
+        useCharacter[0].dialogueText.DOFade(1f, 0.5f);
+    }
+    void OffPosDial()
+    {
+        useCharacter[0].dialRender.DOFade(0f, 0.5f);
+        useCharacter[0].nameText.DOFade(0f, 0.5f);
+        useCharacter[0].dialogueText.DOFade(0f, 0.5f);
+    }
+
     /// <summary>
     /// 현재 쓰이는 다이얼로그를 업데이트
     /// </summary>
@@ -118,6 +131,7 @@ public class VisualNovelReReady : MonoBehaviour
         //현재 첫 번째 대화창인가?
         if(isFirst == true)
         {
+            SetPosDial();
             Debug.Log("SET");
             //초기화
             SetScreen();
@@ -201,21 +215,8 @@ public class VisualNovelReReady : MonoBehaviour
                 //만약 이게 마지막 대화창일 경우
                 else
                 {
-                    //모든 캐릭터에 있는 수치를
-                    for (int i = 0; i < useCharacter.Length; ++i)
-                    {
-                        //해제
-                        SetObjects(useCharacter[i], false);
-                    }
-
-                    if (eventCGSets.Length > 0)
-                    {
-                        for (int i = 0; i < eventCGSets.Length; i++)
-                        {
-                            SetObjects(eventCGSets[i], false);
-                        }
-                    }
-
+                    OffPosDial();
+                    StartCoroutine("SetOb");
                     //트루를 반환하면서 다음 함수 진행되게 함
                     return true;
                 }
@@ -224,6 +225,26 @@ public class VisualNovelReReady : MonoBehaviour
         }
         //아닐 경우는 항상 false로 해당 함수에 머물게 함
         return false;
+    }
+
+    IEnumerator SetOb()
+    {
+        yield return new WaitForSeconds(0.5f);
+        //모든 캐릭터에 있는 수치를
+        for (int i = 0; i < useCharacter.Length; ++i)
+        {
+            //해제
+            SetObjects(useCharacter[i], false);
+        }
+
+        if (eventCGSets.Length > 0)
+        {
+            for (int i = 0; i < eventCGSets.Length; i++)
+            {
+                SetObjects(eventCGSets[i], false);
+            }
+        }
+
     }
 
     /// <summary>
