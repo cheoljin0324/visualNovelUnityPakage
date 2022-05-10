@@ -176,31 +176,6 @@ public class VisualNovelReReady : MonoBehaviour
                 //만약 이게 마지막 대화창이 아닐 경우
                 if (dialogueMs.Length > currentDialogueIndex + 1)
                 {
-                    if (dialogueMs[currentDialogueIndex].Anim == true)
-                    {
-                        isFade = true;
-                        StartCoroutine(FadeOut(0));
-                    }
-
-                    if (dialogueMs[currentDialogueIndex].Anim == true)
-                    {
-                        isFade = true;
-                        StartCoroutine(FadeOut(1));
-                    }
-                    else
-                    {
-                        useCharacter[0].spriteRenderers[1].color = new Color(1, 1, 1, 0);
-                    }
-
-                    if (dialogueMs[currentDialogueIndex].Anim == true)
-                    {
-                        isFade = true;
-                        StartCoroutine(FadeOut(2));
-                    }
-                    else
-                    {
-                        useCharacter[0].spriteRenderers[2].color = new Color(1, 1, 1, 0);
-                    }
                     StartCoroutine(FalseOb(false));
     
             
@@ -286,15 +261,7 @@ public class VisualNovelReReady : MonoBehaviour
                 useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position = new UnityEngine.Vector3(useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.x+1, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.y - 6, 0);
             }
             useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].gameObject.SetActive(true);
-
-            if (dialogueMs[currentDialogueIndex].Anim == true)
-            {
-                StartCoroutine(FadeIn(dialogueMs[currentDialogueIndex].charintPos[0]));
-            }
-            else
-            {
-                useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].color = new Color(1, 1, 1, 1);
-            }
+        
 
             //만약 사용되는 캐릭터가 1명보다 많을때
             if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
@@ -306,14 +273,7 @@ public class VisualNovelReReady : MonoBehaviour
                     useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale = new UnityEngine.Vector3(useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale.x * 2, useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale.y * 2, useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].transform.localScale.z);
                 }
                 useCharacter[currentCharIndex[1]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].gameObject.SetActive(true);
-                if (dialogueMs[currentDialogueIndex].Anim == true)
-                {
-                    StartCoroutine(FadeIn(dialogueMs[currentDialogueIndex].charintPos[1]));
-                }
-                else
-                {
-                    useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[1]].color = new Color(1, 1, 1, 1);
-                }
+                
             }
             //3명 보다 많을때
             if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
@@ -325,14 +285,6 @@ public class VisualNovelReReady : MonoBehaviour
                     useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale = new UnityEngine.Vector3(useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale.x * 2, useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale.y * 2, useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].transform.localScale.z);
                 }
                 useCharacter[currentCharIndex[2]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].gameObject.SetActive(true);
-                if (dialogueMs[currentDialogueIndex].Anim == true)
-                {
-                    StartCoroutine(FadeIn(dialogueMs[currentDialogueIndex].charintPos[2]));
-                }
-                else
-                {
-                    useCharacter[0].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[2]].color = new Color(1, 1, 1, 1);
-                }
             }
             backScreen[currentBackNum].spriteRenderer.sprite = backScreen[currentBackNum].backSprite;
         }
@@ -528,7 +480,6 @@ public class VisualNovelReReady : MonoBehaviour
         useCharacter[0].spriteRenderers[val].DOFade(0f, fadeTime);
 
         yield return new WaitForSeconds(0.1f);
-        dialogueMs[currentDialogueIndex].Anim = false;
         isFade = false;
     }
 
@@ -655,9 +606,6 @@ public struct DialogueM
     public int nowMent;
     [Header("줌 인")]
     public bool zoom;
-
-    [Header("애니매이션")]
-    public bool Anim;
 
     [Header("화난 효과")]
     public bool isAngry;
