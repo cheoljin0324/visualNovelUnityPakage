@@ -348,6 +348,8 @@ MonoBehaviour:
     charSpriteSet:
     - charSprite: {fileID: 21300000, guid: b50bd467f395d5a48aedd88938069482, type: 3}
       EmotionName: 0
+    - charSprite: {fileID: 21300000, guid: 36339f3195ec9fb499d1363a4ea4bb19, type: 3}
+      EmotionName: 1
     spriteRenderers:
     - {fileID: 983523450}
     - {fileID: 1232272019}
@@ -386,9 +388,7 @@ MonoBehaviour:
     charintPos: 0200000001000000
     nowMent: 0
     zoom: 0
-    oneFade: 0
-    twoFade: 0
-    threeFade: 0
+    Anim: 1
     isAngry: 0
     backName: 0
     useVideo: {fileID: 0}
@@ -401,10 +401,8 @@ MonoBehaviour:
       Emotion: 0
     charintPos: 01000000
     nowMent: 0
-    zoom: 1
-    oneFade: 0
-    twoFade: 0
-    threeFade: 0
+    zoom: 0
+    Anim: 1
     isAngry: 0
     backName: 1
     useVideo: {fileID: 0}
@@ -418,9 +416,7 @@ MonoBehaviour:
     charintPos: 01000000
     nowMent: 0
     zoom: 0
-    oneFade: 0
-    twoFade: 1
-    threeFade: 0
+    Anim: 1
     isAngry: 0
     backName: 1
     useVideo: {fileID: 0}
@@ -1364,9 +1360,7 @@ MonoBehaviour:
     charintPos: 01000000
     nowMent: 0
     zoom: 0
-    oneFade: 0
-    twoFade: 0
-    threeFade: 0
+    Anim: 0
     isAngry: 0
     backName: 0
     useVideo: {fileID: 0}
