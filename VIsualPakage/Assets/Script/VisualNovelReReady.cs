@@ -43,11 +43,13 @@ public class VisualNovelReReady : MonoBehaviour
 
     float timer = 0f;
     float waitTime = 1f;
+    int lastDial = 0;
 
 
     private void Awake()
     {
         currentBackNum = dialogueMs[currentDialogueIndex + 1].backName;
+        lastDial = dialogueMs.Length;
 
         //초기 값으로 정해줄 사용되는 캐릭터 정수 초기화
         currentCharIndex[0] = dialogueMs[currentDialogueIndex + 1].charSet[0].charNumber;
@@ -152,6 +154,7 @@ public class VisualNovelReReady : MonoBehaviour
                     useCharacter[0].spriteRenderers[1].transform.localScale = new UnityEngine.Vector3(useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.x / 2, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.y / 2, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.localScale.z);
                     useCharacter[0].spriteRenderers[1].transform.position = new UnityEngine.Vector3(useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.x - 1, useCharacter[currentCharIndex[0]].spriteRenderers[dialogueMs[currentDialogueIndex].charintPos[0]].transform.position.y + 6, 0);
                 }
+
                 //만약 타이핑 도중이었다면
                 if (isTyping == true)
                 {
@@ -164,21 +167,47 @@ public class VisualNovelReReady : MonoBehaviour
                     //끝났다는 화살표를 표기
                     useCharacter[currentMentCharIndex].Arrow.gameObject.SetActive(true);
                 }
-                if (isFade == true)
-                {
-                    useCharacter[0].spriteRenderers[0].color = new Color(1, 1, 1, 0);
-                    useCharacter[0].spriteRenderers[1].color = new Color(1, 1, 1, 0);
-                    useCharacter[0].spriteRenderers[2].color = new Color(1, 1, 1, 0);
 
-                    isFade = false;
-                }
+
+
 
                 //만약 이게 마지막 대화창이 아닐 경우
                 if (dialogueMs.Length > currentDialogueIndex + 1)
                 {
+                    if (dialogueMs[currentDialogueIndex].charSet[0].charNumber != dialogueMs[currentDialogueIndex + 1].charSet[0].charNumber || dialogueMs[currentDialogueIndex + 1].charSet[0].Emotion != dialogueMs[currentDialogueIndex + 1].charSet[0].Emotion)
+                    {
+                        StartCoroutine(FadeOut(dialogueMs[currentDialogueIndex].charintPos[0]));
+                    }
+
+                    if (dialogueMs[currentDialogueIndex].charSet.Length > 1)
+                    {
+                        if (dialogueMs[currentDialogueIndex + 1].charSet.Length < 2)
+                        {
+                            StartCoroutine(FadeOut(dialogueMs[currentDialogueIndex].charintPos[1]));
+                        }
+                        else if (dialogueMs[currentDialogueIndex].charSet[1].charNumber != dialogueMs[currentDialogueIndex + 1].charSet[1].charNumber || dialogueMs[currentDialogueIndex + 1].charSet[1].Emotion != dialogueMs[currentDialogueIndex + 1].charSet[1].Emotion)
+                        {
+                            StartCoroutine(FadeOut(dialogueMs[currentDialogueIndex].charintPos[1]));
+                        }
+                    }
+
+
+
+                        if (dialogueMs[currentDialogueIndex].charSet.Length > 2)
+                        {
+                        if (dialogueMs[currentDialogueIndex + 1].charSet.Length < 3)
+                        {
+                            StartCoroutine(FadeOut(dialogueMs[currentDialogueIndex].charintPos[1]));
+                        }
+                        else if (dialogueMs[currentDialogueIndex].charSet[2].charNumber != dialogueMs[currentDialogueIndex + 1].charSet[2].charNumber || dialogueMs[currentDialogueIndex + 1].charSet[2].Emotion != dialogueMs[currentDialogueIndex + 1].charSet[2].Emotion)
+                        {
+                            StartCoroutine(FadeOut(dialogueMs[currentDialogueIndex].charintPos[2]));
+                        }
+
+                     }
+                    
+
                     StartCoroutine(FalseOb(false));
-    
-            
                         SetNextDialogue();
                     
 
@@ -468,19 +497,15 @@ public class VisualNovelReReady : MonoBehaviour
 
     IEnumerator FadeIn(int val)
     {
+        yield return new WaitForSeconds(fadeTime + 0.1f);
         useCharacter[0].spriteRenderers[val].DOFade(1f, fadeTime);
-
-
-        yield return new WaitForSeconds(fadeTime+0.1f);
     }
 
     IEnumerator FadeOut(int val)
     {
-        isFade = true;
         useCharacter[0].spriteRenderers[val].DOFade(0f, fadeTime);
 
-        yield return new WaitForSeconds(0.1f);
-        isFade = false;
+        yield return new WaitForSeconds(fadeTime);
     }
 
     IEnumerator FalseOb(bool visable)
@@ -495,10 +520,9 @@ public class VisualNovelReReady : MonoBehaviour
         }
         else if (visable == false)
         {
-           
-            useCharacter[0].spriteRenderers[0].gameObject.SetActive(true);
-            useCharacter[0].spriteRenderers[1].gameObject.SetActive(true);
-            useCharacter[0].spriteRenderers[2].gameObject.SetActive(true);
+            useCharacter[0].spriteRenderers[0].gameObject.SetActive(false);
+            useCharacter[0].spriteRenderers[1].gameObject.SetActive(false);
+            useCharacter[0].spriteRenderers[2].gameObject.SetActive(false);
         }
     }
 }
