@@ -174,7 +174,7 @@ public class VisualNovelReReady : MonoBehaviour
                 //만약 이게 마지막 대화창이 아닐 경우
                 if (dialogueMs.Length > currentDialogueIndex + 1)
                 {
-                    if (dialogueMs[currentDialogueIndex].charSet[0].charNumber != dialogueMs[currentDialogueIndex + 1].charSet[0].charNumber || dialogueMs[currentDialogueIndex + 1].charSet[0].Emotion != dialogueMs[currentDialogueIndex + 1].charSet[0].Emotion)
+                    if (dialogueMs[currentDialogueIndex].charSet[0].charNumber != dialogueMs[currentDialogueIndex + 1].charSet[0].charNumber || dialogueMs[currentDialogueIndex + 1].charSet[0].Emotion != dialogueMs[currentDialogueIndex + 1].charSet[0].Emotion||dialogueMs[currentDialogueIndex].charintPos[0]!=dialogueMs[currentDialogueIndex+1].charintPos[0])
                     {
                         StartCoroutine(FadeOut(dialogueMs[currentDialogueIndex].charintPos[0]));
                     }
