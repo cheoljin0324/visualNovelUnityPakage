@@ -36,7 +36,7 @@ public class VisualNovelReReady : MonoBehaviour
     //타이핑이 현재 진행중인가?
     private bool isTyping = false;
 
-    private float fadeTime = 0.2f;
+    private float fadeTime = 0.1f;
     //현재 사용중인 이벤트CG
     private int currenteventCG;
     private bool isFade = false;
@@ -478,11 +478,27 @@ public class VisualNovelReReady : MonoBehaviour
         useCharacter[0].spriteRenderers[val].DOFade(1f, fadeTime);
     }
 
+    IEnumerator EmotionFadeIn(int val)
+    {
+        yield return new WaitForSeconds(fadeTime / 10);
+        useCharacter[0].spriteRenderers[val+1].DOFade(1f, fadeTime / 10);
+        useCharacter[0].spriteRenderers[val].sprite = useCharacter[0].spriteRenderers[val + 1].sprite;
+        yield return new WaitForSeconds(fadeTime / 10);
+        useCharacter[0].spriteRenderers[val].color = new Color(1, 1, 1, 1);
+        useCharacter[0].spriteRenderers[val + 1].color = new Color(1, 1, 1, 0);
+    }
+
     IEnumerator FadeOut(int val)
     {
         useCharacter[0].spriteRenderers[val].DOFade(0f, fadeTime);
 
         yield return new WaitForSeconds(fadeTime);
+    }
+
+    IEnumerator EmotionFadeOut(int val)
+    {
+        useCharacter[0].spriteRenderers[val].DOFade(0f, fadeTime / 10);
+        yield return new WaitForSeconds(fadeTime / 10);
     }
 
     IEnumerator FalseOb(bool visable)
