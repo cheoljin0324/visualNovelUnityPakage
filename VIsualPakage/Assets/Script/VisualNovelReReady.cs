@@ -480,7 +480,6 @@ public class VisualNovelReReady : MonoBehaviour
 
     IEnumerator EmotionFadeIn(int val)
     {
-        yield return new WaitForSeconds(fadeTime / 10);
         useCharacter[0].spriteRenderers[val+1].DOFade(1f, fadeTime / 10);
         useCharacter[0].spriteRenderers[val].sprite = useCharacter[0].spriteRenderers[val + 1].sprite;
         yield return new WaitForSeconds(fadeTime / 10);
