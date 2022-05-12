@@ -67,38 +67,24 @@
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialogueCLS.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialougeFlow.cs" />
     <Compile Include="Assets\Script\PlayerData.cs" />
+    <Compile Include="Assets\Script\LoadScreen.cs" />
     <Compile Include="Assets\Script\FadeObject.cs" />
-    <Compile Include="Assets\Script\VisualNovelReReady.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Example\VisualNovelReReady.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\Effect.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\ScriptControler.cs" />
     <Compile Include="Assets\Script\사용법.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetStandCG.cs" />
     <Compile Include="Assets\Script\VisualNovel.cs" />
     <Compile Include="Assets\Script\DialgoueManager.cs" />
-    <Compile Include="Assets\Script\LoadScreen.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <Compile Include="Assets\Script\VisualModuel\VisualData.cs" />
+    <Compile Include="Assets\Script\VisualModuel\VisualSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\VisualNovelControler.cs" />
+    <Compile Include="Assets\Script\VisualModuel\ObjectSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\CharacterObjectSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectSetPosition.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\CharacterObjectSpriteSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectInFade.cs" />
+    <Compile Include="Assets\Script\VisualModuel\DialFlow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
