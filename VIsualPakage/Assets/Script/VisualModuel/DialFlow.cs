@@ -9,6 +9,7 @@ public class DialFlow : MonoBehaviour
 
     private IEnumerator Start()
     {
+        yield return new WaitForSeconds(2f);
         yield return new WaitUntil(() => vi.UpdateDialogue());
     }
 

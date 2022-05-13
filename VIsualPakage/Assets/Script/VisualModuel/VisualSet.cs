@@ -11,6 +11,10 @@ public class VisualSet : MonoBehaviour
     [HideInInspector]
     public bool isFirst = true;
     [HideInInspector]
+    public bool isLastDial = false;
+    [HideInInspector]
+    public bool isFade = false;
+    [HideInInspector]
     public int currentDialogueIndex = 0;
     public int currentCharIndex = 0;
 }

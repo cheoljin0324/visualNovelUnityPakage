@@ -10,6 +10,7 @@ public class VisualNovelControler : MonoBehaviour
     ObjectInFade objectInFade;
     ObjectSetPosition objectSetPosition;
     CharacterObjectSpriteSet characterObjectSpriteSet;
+    DialogueControler dialControl;
 
     void Awake()
     {
@@ -18,6 +19,7 @@ public class VisualNovelControler : MonoBehaviour
         objectInFade = GameObject.Find("CharSet").GetComponent<ObjectInFade>();
         objectSetPosition = GameObject.Find("CharSet").GetComponent<ObjectSetPosition>();
         characterObjectSpriteSet = GameObject.Find("CharSet").GetComponent<CharacterObjectSpriteSet>();
+        dialControl = GameObject.Find("ObjectSetOb").GetComponent<DialogueControler>();
         dataSet = GetComponent<VisualSet>();
     }
 
@@ -33,14 +35,16 @@ public class VisualNovelControler : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                if(dataSet.dialogue.Length> dataSet.currentDialogueIndex + 1)
-                {
-                    SetNextDialogue();
-                }
-                else
-                {
-                    return true;
-                }
+               
+                    if (dataSet.dialogue.Length > dataSet.currentDialogueIndex + 1)
+                    {
+                        SetNextDialogue();
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                
             }
         }
         return false;
@@ -52,15 +56,32 @@ public class VisualNovelControler : MonoBehaviour
     {
         if (dataSet.isFirst == false)
         {
+            dataSet.currentDialogueIndex++;
             characterObjectSet.DelObject();
+            Debug.Log(characterObjectSet.ObjectList.Count);
         }
-        characterObjectSet.NewObject(dataSet.dialogue[dataSet.currentDialogueIndex].charSet.Length);
-        objectSetPosition.SetPos(dataSet.dialogue[dataSet.currentDialogueIndex].charintPos);
-        SpriteSet();
-        objectInFade.ObIn();
+        else
+        {
+            dialControl.NewDial(objectSet.DialBox);
+        }
+        StartCoroutine(NewOb());
+
+           
+
+
 
     }
 
+    IEnumerator NewOb()
+    {
+        yield return new WaitForSeconds(0.5f);
+        characterObjectSet.NewObject(dataSet.dialogue[dataSet.currentDialogueIndex].charSet.Length);
+        Debug.Log(characterObjectSet.ObjectList.Count);
+        objectSetPosition.SetPos(dataSet.dialogue[dataSet.currentDialogueIndex].charintPos);
+        SpriteSet();
+        objectInFade.ObIn();
+        dataSet.isLastDial = true;
+    }
 
     void SpriteSet()
     {
@@ -70,14 +91,12 @@ public class VisualNovelControler : MonoBehaviour
         }
         else if (dataSet.dialogue[dataSet.currentDialogueIndex].charSet.Length == 2)
         {
-            characterObjectSpriteSet.SpriteSet(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].Emotion]);
-            characterObjectSpriteSet.SpriteSet(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].Emotion]);
+            characterObjectSpriteSet.SpriteSet(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].Emotion], dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].Emotion]);
         }
         else if (dataSet.dialogue[dataSet.currentDialogueIndex].charSet.Length == 3)
         {
-            characterObjectSpriteSet.SpriteSet(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].Emotion]);
-            characterObjectSpriteSet.SpriteSet(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].Emotion]);
-            characterObjectSpriteSet.SpriteSet(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[2].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[2].Emotion]);
+            characterObjectSpriteSet.SpriteSet(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[0].Emotion], dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[1].Emotion], dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[2].charNumber].charSprite[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[2].Emotion]);
+
         }
     }
 

@@ -16,11 +16,11 @@ public class ObjectSetPosition : MonoBehaviour
     {
         for(int i = 0; i<posVal.Length; i++)
         {
-            if (posVal[i] == 1)
+            if (posVal[i] == 0)
             {
                 obSet.ObjectList[i].transform.position = pos[0];
             }
-            else if (posVal[i] == 2)
+            else if (posVal[i] == 1)
             {
                 obSet.ObjectList[i].transform.position = pos[1];
             }

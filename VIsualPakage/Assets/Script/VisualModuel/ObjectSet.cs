@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObjectSet : MonoBehaviour
 {
     [SerializeField]
-    SpriteRenderer DialBox;
+    public GameObject DialBox;
     [SerializeField]
-    SpriteRenderer DialArrow;
+    public GameObject DialArrow;
     [SerializeField]
-    SpriteRenderer DialName;
+    public GameObject DialName;
     [SerializeField]
-    SpriteRenderer DialText;
+    public GameObject DialText;
 
 }

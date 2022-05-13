@@ -8,13 +8,18 @@ public class CharacterObjectSet : MonoBehaviour
     public GameObject PlayPrefab;
     [HideInInspector]
     public List<GameObject> ObjectList = new List<GameObject>();
+    public List<GameObject> BObjectList = new List<GameObject>();
 
 
     public void DelObject()
     {
        for(int i = 0; i<ObjectList.Count; i++)
         {
-            ObjectList[i].GetComponent<SpriteRenderer>().DOFade(0f, 0.5f);
+            if(charOb.BObjectList.Count == 0 || ObjectList[i].GetComponent<SpriteRenderer>().sprite != BObjectList[i].GetComponent<SpriteRenderer>().sprite)
+            {
+                ObjectList[i].GetComponent<SpriteRenderer>().DOFade(0f, 0.5f);
+            }
+
         }
         StartCoroutine(delOb());
     }
@@ -30,7 +35,13 @@ public class CharacterObjectSet : MonoBehaviour
 
     private IEnumerator delOb()
     {
+        BObjectList.Clear();
         yield return new WaitForSeconds(0.5f);
+        for(int i = 0; i<ObjectList.Count; i++)
+        {
+            BObjectList.Add(ObjectList[i]);
+            Destroy(ObjectList[i]);
+        }
         ObjectList.Clear();
     }
 }
