@@ -15,11 +15,10 @@ public class ObjectInFade : MonoBehaviour
     {
         for(int i = 0; i<charOb.ObjectList.Count; i++)
         {
-            if(charOb.BObjectList.Count == 0||charOb.ObjectList[i].GetComponent<SpriteRenderer>().sprite != charOb.BObjectList[i].GetComponent<SpriteRenderer>().sprite)
-            {
-                charOb.ObjectList[i].GetComponent<SpriteRenderer>().DOFade(1f, 0.5f);
-            }
-
+           
+                charOb.ObjectList[i].GetComponent<SpriteRenderer>().DOFade(1f, 0.1f);
+            
+            
         }
 
     }

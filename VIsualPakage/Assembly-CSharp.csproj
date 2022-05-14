@@ -60,18 +60,23 @@
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\CharacterObjectSet.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\MonoSingleton.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SayScript.cs" />
-    <Compile Include="Assets\Script\VisualModuel\VisualSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\MainDial\VisualSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\dialogueSet\DialogueControler.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetName.cs" />
-    <Compile Include="Assets\Script\VisualModuel\VisualData.cs" />
+    <Compile Include="Assets\Script\VisualModuel\dialogueSet\FadeDialBox.cs" />
+    <Compile Include="Assets\Script\VisualModuel\dialogueSet\DelDialBox.cs" />
+    <Compile Include="Assets\Script\VisualModuel\MainDial\VisualData.cs" />
     <Compile Include="Assets\Script\SaveData.cs" />
     <Compile Include="Assets\Script\SaveManager.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectInFade.cs" />
+    <Compile Include="Assets\Script\VisualModuel\dialogueSet\InstantiateDialBox.cs" />
     <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetPosition.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialogueCLS.cs" />
-    <Compile Include="Assets\Script\VisualModuel\VisualNovelControler.cs" />
+    <Compile Include="Assets\Script\VisualModuel\MainDial\VisualNovelControler.cs" />
+    <Compile Include="Assets\Script\VisualModuel\MainDial\ObjectControler.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialougeFlow.cs" />
-    <Compile Include="Assets\Script\VisualModuel\ObjectSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\MainDial\ObjectSet.cs" />
     <Compile Include="Assets\Script\PlayerData.cs" />
     <Compile Include="Assets\Script\LoadScreen.cs" />
     <Compile Include="Assets\Script\FadeObject.cs" />
@@ -81,15 +86,11 @@
     <Compile Include="Assets\Script\사용법.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetStandCG.cs" />
     <Compile Include="Assets\Script\VisualNovel.cs" />
-    <Compile Include="Assets\Script\VisualModuel\DialFlow.cs" />
+    <Compile Include="Assets\Script\VisualModuel\MainDial\DialFlow.cs" />
     <Compile Include="Assets\Script\DialgoueManager.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\CharacterObjectSpriteSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectSetPosition.cs" />
-    <Compile Include="Assets\Script\VisualModuel\dialogueSet\InstantiateDialBox.cs" />
-    <Compile Include="Assets\Script\VisualModuel\dialogueSet\DelDialBox.cs" />
-    <Compile Include="Assets\Script\VisualModuel\dialogueSet\FadeDialBox.cs" />
-    <Compile Include="Assets\Script\VisualModuel\ObjectControler.cs" />
-    <Compile Include="Assets\Script\VisualModuel\dialogueSet\DialogueControler.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectOutFade.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
