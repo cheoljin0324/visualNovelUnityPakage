@@ -11,13 +11,8 @@ public class ObjectOutFade : MonoBehaviour
         charOb = GetComponent<CharacterObjectSet>();
     }
 
-    public void ObOut()
+    public void ObOut(int set)
     {
-        for (int i = 0; i < charOb.ObjectList.Count; i++)
-        {
-                charOb.ObjectList[i].GetComponent<SpriteRenderer>().DOFade(0f, charOb.fadeTime);
-            
-        }
-
+       charOb.ObjectList[set].GetComponent<SpriteRenderer>().DOFade(0f, charOb.fadeTime);
     }
 }

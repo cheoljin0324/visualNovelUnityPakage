@@ -13,6 +13,8 @@ public class VisualNovelControler : MonoBehaviour
     CharacterObjectSpriteSet characterObjectSpriteSet;
     DialogueControler dialControl;
 
+    public bool isFade = false;
+
     void Awake()
     {
         objectSet = GameObject.Find("ObjectSetOb").GetComponent<ObjectSet>();
@@ -29,6 +31,7 @@ public class VisualNovelControler : MonoBehaviour
     {
         if (dataSet.isFirst == true)
         {
+            characterObjectSet.fadeTime = 0.1f;
             SetNextDialogue();
             dataSet.isFirst = false;
         }
@@ -44,7 +47,16 @@ public class VisualNovelControler : MonoBehaviour
                     }
                     else
                     {
-                        return true;
+                        dialControl.FadeOutDial(dialControl.DialBox);
+                    for (int i = 0; i < characterObjectSet.ObjectList.Count; i++)
+                    {
+                            characterObjectSet.fadeTime = 0.5f;
+                            isFade = true;
+                            objectOutFade.ObOut(i);
+                        
+
+                    }
+                    return true;
                     }
                 
             }
@@ -67,7 +79,19 @@ public class VisualNovelControler : MonoBehaviour
             {
                 characterObjectSet.fadeTime = 0.1f;
             }
-            objectOutFade.ObOut();
+            for(int i = 0; i<characterObjectSet.ObjectList.Count; i++)
+            {
+                if(dataSet.dialogue[dataSet.currentDialogueIndex].charSet[i].Emotion!= dataSet.dialogue[dataSet.currentDialogueIndex-1].charSet[i].Emotion||dataSet.dialogue[dataSet.currentDialogueIndex].charintPos[i]!= dataSet.dialogue[dataSet.currentDialogueIndex-1].charintPos[i])
+                {
+                    isFade = true;
+                    objectOutFade.ObOut(i);
+                }
+
+            }
+            if (isFade == false||dataSet.currentDialogueIndex==1)
+            {
+                characterObjectSet.fadeTime = 0;
+            }
             characterObjectSet.DelObject();
             Debug.Log(characterObjectSet.ObjectList.Count);
         }
@@ -90,7 +114,29 @@ public class VisualNovelControler : MonoBehaviour
         Debug.Log(characterObjectSet.ObjectList.Count);
         objectSetPosition.SetPos(dataSet.dialogue[dataSet.currentDialogueIndex].charintPos);
         SpriteSet();
-        objectInFade.ObIn();
+        for (int i = 0; i < characterObjectSet.ObjectList.Count; i++)
+        {
+            if (dataSet.currentDialogueIndex == 0)
+            {
+                objectInFade.ObIn(i);
+            }
+            else
+            {
+                if (dataSet.dialogue[dataSet.currentDialogueIndex].charSet[i].Emotion != dataSet.dialogue[dataSet.currentDialogueIndex-1].charSet[i].Emotion || dataSet.dialogue[dataSet.currentDialogueIndex].charintPos[i] != dataSet.dialogue[dataSet.currentDialogueIndex-1].charintPos[i])
+                {
+                    objectInFade.ObIn(i);
+                    isFade = false;
+                }
+                else
+                {
+                    characterObjectSet.ObjectList[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                    characterObjectSet.fadeTime = 0.1f;
+                }
+            }
+
+            
+
+        }
         dataSet.isLastDial = true;
     }
 

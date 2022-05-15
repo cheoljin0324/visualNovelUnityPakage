@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterObjectSet : MonoBehaviour
 {
     public GameObject PlayPrefab;
+    public float delTime = 0.1f;
     [HideInInspector]
     public List<GameObject> ObjectList = new List<GameObject>();
     public List<GameObject> BObjectList = new List<GameObject>();
@@ -15,6 +16,14 @@ public class CharacterObjectSet : MonoBehaviour
     public void DelObject()
     {
         StartCoroutine(delOb());
+    }
+
+    public void NdelObject()
+    {
+        for (int i = 0; i < ObjectList.Count; i++)
+        {
+            Destroy(ObjectList[i]);
+        }
     }
    
 
@@ -29,7 +38,7 @@ public class CharacterObjectSet : MonoBehaviour
 
     private IEnumerator delOb()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(delTime);
         for(int i = 0; i<ObjectList.Count; i++)
         {
             Destroy(ObjectList[i]);

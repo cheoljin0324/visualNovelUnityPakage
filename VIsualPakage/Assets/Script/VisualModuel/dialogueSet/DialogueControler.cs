@@ -8,6 +8,8 @@ public class DialogueControler : MonoBehaviour
     InstantiateDialBox instDialBox;
     FadeDialBox FadeControl;
 
+    public GameObject DialBox;
+
     private void Awake()
     {
         delDial = GetComponent<DelDialBox>();
@@ -23,6 +25,7 @@ public class DialogueControler : MonoBehaviour
     public void NewDial(GameObject Dial)
     {
         instDialBox.DialogueBoxSet(Dial);
+        DialBox = instDialBox.DialBox;
         FadeControl.InstDialFade(instDialBox.DialBox);
     }
 

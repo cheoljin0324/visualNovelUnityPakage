@@ -11,15 +11,8 @@ public class ObjectInFade : MonoBehaviour
         charOb = GetComponent<CharacterObjectSet>();
     }
 
-    public void ObIn()
-    {
-        for(int i = 0; i<charOb.ObjectList.Count; i++)
-        {
-           
-                charOb.ObjectList[i].GetComponent<SpriteRenderer>().DOFade(1f, 0.1f);
-            
-            
-        }
-
+    public void ObIn(int setNum)
+    {    
+       charOb.ObjectList[setNum].GetComponent<SpriteRenderer>().DOFade(1f, 0.1f);
     }
 }
