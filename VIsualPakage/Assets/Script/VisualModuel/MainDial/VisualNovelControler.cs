@@ -12,6 +12,7 @@ public class VisualNovelControler : MonoBehaviour
     ObjectSetPosition objectSetPosition;
     CharacterObjectSpriteSet characterObjectSpriteSet;
     DialogueControler dialControl;
+    TextControler textCon;
 
     public bool isFade = false;
 
@@ -24,6 +25,7 @@ public class VisualNovelControler : MonoBehaviour
         characterObjectSpriteSet = GameObject.Find("CharSet").GetComponent<CharacterObjectSpriteSet>();
         objectOutFade = GameObject.Find("CharSet").GetComponent<ObjectOutFade>();
         dialControl = GameObject.Find("ObjectSetOb").GetComponent<DialogueControler>();
+        textCon = GameObject.Find("TextManager").GetComponent<TextControler>();
         dataSet = GetComponent<VisualSet>();
     }
 
@@ -40,7 +42,12 @@ public class VisualNovelControler : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-               
+                if (textCon.isTyping == true)
+                {
+                    textCon.isTyping = false;
+                }
+                else
+                {
                     if (dataSet.dialogue.Length > dataSet.currentDialogueIndex + 1)
                     {
                         SetNextDialogue();
@@ -48,17 +55,20 @@ public class VisualNovelControler : MonoBehaviour
                     else
                     {
                         dialControl.FadeOutDial(dialControl.DialBox);
-                    for (int i = 0; i < characterObjectSet.ObjectList.Count; i++)
-                    {
+                        for (int i = 0; i < characterObjectSet.ObjectList.Count; i++)
+                        {
                             characterObjectSet.fadeTime = 0.5f;
                             isFade = true;
                             objectOutFade.ObOut(i);
-                        
+                            textCon.DeleteDial();
+                            textCon.DeleteName();
+                        }
+                        return true;
+                    }
 
-                    }
-                    return true;
-                    }
-                
+                }
+
+
             }
         }
         return false;
@@ -71,6 +81,8 @@ public class VisualNovelControler : MonoBehaviour
         if (dataSet.isFirst == false)
         {
             dataSet.currentDialogueIndex++;
+            textCon.UpdateName(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[dataSet.dialogue[dataSet.currentDialogueIndex].nowMent].charNumber].Name);
+            textCon.UpdateDial(dataSet.dialogue[dataSet.currentDialogueIndex].DialogueData);
             if (dataSet.currentDialogueIndex == dataSet.dialogue.Length)
             {
                 characterObjectSet.fadeTime = 0.5f;
@@ -98,6 +110,10 @@ public class VisualNovelControler : MonoBehaviour
         else
         {
             dialControl.NewDial(objectSet.DialBox);
+            textCon.InstName();
+            textCon.InstDial();
+            textCon.UpdateName(dataSet.simChar[dataSet.dialogue[dataSet.currentDialogueIndex].charSet[dataSet.dialogue[dataSet.currentDialogueIndex].nowMent].charNumber].Name);
+            textCon.UpdateDial(dataSet.dialogue[dataSet.currentDialogueIndex].DialogueData);
         }
         StartCoroutine(NewOb());
 

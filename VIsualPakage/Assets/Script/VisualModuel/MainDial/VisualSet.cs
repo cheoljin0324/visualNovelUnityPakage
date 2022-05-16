@@ -17,5 +17,6 @@ public class VisualSet : MonoBehaviour
     public bool isFade = false;
     [HideInInspector]
     public int currentDialogueIndex = 0;
+    [HideInInspector]
     public int currentCharIndex = 0;
 }

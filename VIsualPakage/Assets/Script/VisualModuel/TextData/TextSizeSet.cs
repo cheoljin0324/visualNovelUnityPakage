@@ -1,22 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextSizeSet : MonoBehaviour
 {
+    TextNameSet nameset;
+    TextDialogueSet dialset;
 
-    public Vector3 NamePosition;
-    public Vector3 DialPosition;
+    public int namefontSize;
+    public int dialfontSize;
+
+    [Header("이름 범위")]
+    public Vector2 NameImSize;
+
+    [Header("다이얼 범위")]
+    public Vector2 DialImSize;
 
 
-    public void NamePosSet(GameObject Name)
+
+
+    public void Awake()
     {
-        Name.transform.position = NamePosition;
+        nameset = GetComponent<TextNameSet>();
+        dialset = GetComponent<TextDialogueSet>();
     }
 
-    public void DialPosSet(GameObject Dial)
+
+
+    public void DialSizeSet(GameObject dial)
     {
-        Dial.transform.position = DialPosition;
+        dialset.DialTextN.GetComponent<Text>().fontSize = namefontSize;
+        dialset.DialTextN.GetComponent<Text>().rectTransform.sizeDelta = DialImSize;
     }
+
+    public void NameSizeSet(GameObject name)
+    {
+        nameset.NameTextN.GetComponent<Text>().fontSize = dialfontSize;
+        nameset.NameTextN.GetComponent<Text>().rectTransform.sizeDelta = NameImSize;
+    }
+
 
 }

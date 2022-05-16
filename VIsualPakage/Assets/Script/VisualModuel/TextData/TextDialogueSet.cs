@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class TextDialogueSet : MonoBehaviour
 {
     TextObject texting;
+
     public GameObject DialTextN;
 
     private void Awake()
     {
         texting = GetComponent<TextObject>();
+
     }
 
     public void InstName()
@@ -23,4 +25,6 @@ public class TextDialogueSet : MonoBehaviour
     {
         DialTextN.GetComponent<Text>().text = Name;
     }
+
+
 }

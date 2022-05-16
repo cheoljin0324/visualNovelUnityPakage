@@ -64,9 +64,12 @@
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\DialogueControler.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetName.cs" />
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\FadeDialBox.cs" />
+    <Compile Include="Assets\Script\VisualModuel\TextData\TextObject.cs" />
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\DelDialBox.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\VisualData.cs" />
+    <Compile Include="Assets\Script\VisualModuel\TextData\TextNameSet.cs" />
     <Compile Include="Assets\Script\SaveData.cs" />
+    <Compile Include="Assets\Script\VisualModuel\TextData\TextDialogueSet.cs" />
     <Compile Include="Assets\Script\SaveManager.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectInFade.cs" />
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\InstantiateDialBox.cs" />
@@ -89,13 +92,14 @@
     <Compile Include="Assets\Script\VisualNovel.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\DialFlow.cs" />
     <Compile Include="Assets\Script\DialgoueManager.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\CharacterObjectSpriteSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectSetPosition.cs" />
-    <Compile Include="Assets\Script\VisualModuel\TextData\TextNameSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\TextData\TextObject.cs" />
-    <Compile Include="Assets\Script\VisualModuel\TextData\TextDialogueSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextSizeSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\CharacterObjectSpriteSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextControler.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\ObjectSetPosition.cs" />
+    <Compile Include="Assets\Script\VisualModuel\TextData\TextPositionSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\TextData\NameDataSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\TextData\DialDataSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\TextData\DelText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
