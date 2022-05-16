@@ -57,7 +57,7 @@ public class VisualNovelControler : MonoBehaviour
                         dialControl.FadeOutDial(dialControl.DialBox);
                         for (int i = 0; i < characterObjectSet.ObjectList.Count; i++)
                         {
-                            characterObjectSet.fadeTime = 0.5f;
+                            characterObjectSet.fadeTime = 1f;
                             isFade = true;
                             objectOutFade.ObOut(i);
                             textCon.DeleteDial();
@@ -85,7 +85,7 @@ public class VisualNovelControler : MonoBehaviour
             textCon.UpdateDial(dataSet.dialogue[dataSet.currentDialogueIndex].DialogueData);
             if (dataSet.currentDialogueIndex == dataSet.dialogue.Length)
             {
-                characterObjectSet.fadeTime = 0.5f;
+                characterObjectSet.fadeTime = 1f;
             }
             else
             {
@@ -104,7 +104,7 @@ public class VisualNovelControler : MonoBehaviour
             {
                 characterObjectSet.fadeTime = 0;
             }
-            characterObjectSet.DelObject();
+            characterObjectSet.DelObject(dataSet.dialogue[dataSet.currentDialogueIndex-1].charSet.Length);
             Debug.Log(characterObjectSet.ObjectList.Count);
         }
         else
@@ -126,6 +126,7 @@ public class VisualNovelControler : MonoBehaviour
     IEnumerator NewOb()
     {
         yield return new WaitForSeconds(0.5f);
+        
         characterObjectSet.NewObject(dataSet.dialogue[dataSet.currentDialogueIndex].charSet.Length);
         Debug.Log(characterObjectSet.ObjectList.Count);
         objectSetPosition.SetPos(dataSet.dialogue[dataSet.currentDialogueIndex].charintPos);

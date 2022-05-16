@@ -13,6 +13,6 @@ public class ObjectInFade : MonoBehaviour
 
     public void ObIn(int setNum)
     {    
-       charOb.ObjectList[setNum].GetComponent<SpriteRenderer>().DOFade(1f, 0.1f);
+       charOb.ObjectList[setNum].GetComponent<SpriteRenderer>().DOFade(1f, charOb.fadeTime);
     }
 }

@@ -6,29 +6,20 @@ using UnityEngine;
 public class CharacterObjectSet : MonoBehaviour
 {
     public GameObject PlayPrefab;
-    public float delTime = 0.1f;
+    public float delTime = 0.2f;
     [HideInInspector]
     public List<GameObject> ObjectList = new List<GameObject>();
     public List<GameObject> BObjectList = new List<GameObject>();
     public float fadeTime = 0.1f;
 
 
-    public void DelObject()
+    public void DelObject(int length)
     {
-        StartCoroutine(delOb());
-    }
-
-    public void NdelObject()
-    {
-        for (int i = 0; i < ObjectList.Count; i++)
-        {
-            Destroy(ObjectList[i]);
-        }
+        StartCoroutine(delOb(length));
     }
    
 
-    public void NewObject(int length) {
-        ObjectList.Clear();
+    public void NewObject(int length) {;
         for(int i = 0; i<length; i++)
         {
             ObjectList.Add(Instantiate(PlayPrefab.gameObject));
@@ -36,12 +27,14 @@ public class CharacterObjectSet : MonoBehaviour
         }
     }
 
-    private IEnumerator delOb()
+    private IEnumerator delOb(int length)
     {
         yield return new WaitForSeconds(delTime);
-        for(int i = 0; i<ObjectList.Count; i++)
+        for(int i = 0; i<=length+1; i++)
         {
             Destroy(ObjectList[i]);
+            Debug.Log(length);
+            ObjectList.RemoveAt(i);
         }
     }
 }
