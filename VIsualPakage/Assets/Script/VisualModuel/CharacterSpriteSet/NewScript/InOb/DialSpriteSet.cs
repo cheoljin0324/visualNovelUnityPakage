@@ -9,6 +9,8 @@ public class DialSpriteSet : MonoBehaviour
         for(int i = 0; i<newOb.Count; i++)
         {
             newOb[i].GetComponent<SpriteRenderer>().sprite = SetSprite[i];
+            newOb[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            newOb[i].GetComponent<SpriteRenderer>().sortingOrder = -1;
         }
     }
 }
