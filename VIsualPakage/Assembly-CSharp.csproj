@@ -56,18 +56,24 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\SelectScreen.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\CharacetObControler.cs" />
+    <Compile Include="Assets\SelectScreen.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\CharacterObjectSet.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\MonoSingleton.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SayScript.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\VisualSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\DialogueControler.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetName.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\charData.cs" />
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\FadeDialBox.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextObject.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\DialSpriteSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\DelDialBox.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\VisualData.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\DelOb.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\CharacterSetPos.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextNameSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\InstCharacterOb.cs" />
     <Compile Include="Assets\Script\SaveData.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextDialogueSet.cs" />
     <Compile Include="Assets\Script\SaveManager.cs" />
@@ -100,12 +106,6 @@
     <Compile Include="Assets\Script\VisualModuel\TextData\TextControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\ObjectSetPosition.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextPositionSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\InstCharacterOb.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\CharacetObControler.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\charData.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\CharacterSetPos.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\DialSpriteSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\NewScript\InOb\DelOb.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

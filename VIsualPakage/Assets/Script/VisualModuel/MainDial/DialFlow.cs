@@ -6,6 +6,8 @@ public class DialFlow : MonoBehaviour
 {
     [SerializeField]
     VisualNovelControler vi;
+    [SerializeField]
+    VisualNovelControler vi2;
 
     private IEnumerator Start()
     {

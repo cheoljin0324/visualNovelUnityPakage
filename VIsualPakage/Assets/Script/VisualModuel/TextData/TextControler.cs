@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TextControler : MonoBehaviour
 {
+
+    //텍스트 관련 캐싱을 위한 변수 선언
     TextNameSet textname;
     TextDialogueSet textdial;
     TextSizeSet textSize;
@@ -18,6 +20,7 @@ public class TextControler : MonoBehaviour
 
     private void Awake()
     {
+        //캐싱
         textname = GetComponent<TextNameSet>();
         textdial = GetComponent<TextDialogueSet>();
         textSize = GetComponent<TextSizeSet>();
@@ -27,6 +30,9 @@ public class TextControler : MonoBehaviour
         delTex = GetComponent<DelText>();
     }
 
+    /// <summary>
+    /// 네임을 생성
+    /// </summary>
     public void InstName()
     {
         textname.InstName();
@@ -35,21 +41,34 @@ public class TextControler : MonoBehaviour
         textname.NameTextN.GetComponent<Text>().text = "";
     }
 
+    /// <summary>
+    /// 네임을 삭제
+    /// </summary>
     public void DeleteName()
     {
         delTex.DelOb(textname.NameTextN);
     }
 
+    /// <summary>
+    /// 다이얼로그를 삭제
+    /// </summary>
     public void DeleteDial()
     {
         delTex.DelOb(textdial.DialTextN);
     }
 
+    /// <summary>
+    /// 네임을 업데이트
+    /// </summary>
+    /// <param name="Name"></param>
     public void UpdateName(string Name)
     {
         nameData.NameData(Name);
     }
 
+    /// <summary>
+    /// 다이얼로그를 생성
+    /// </summary>
     public void InstDial()
     {
         textdial.InstName();
@@ -58,6 +77,10 @@ public class TextControler : MonoBehaviour
         textdial.DialTextN.GetComponent<Text>().text = "";
     }
 
+    /// <summary>
+    /// 다이얼로그를 삭제
+    /// </summary>
+    /// <param name="Dial"></param>
     public void UpdateDial(string Dial)
     {
         dialData.DialData(Dial);
