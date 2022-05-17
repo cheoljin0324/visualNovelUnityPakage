@@ -13,6 +13,7 @@ public class VisualNovelControler : MonoBehaviour
     CharacterObjectSpriteSet characterObjectSpriteSet;
     DialogueControler dialControl;
     TextControler textCon;
+    CharacetObControler CharCon;
 
     public bool isFade = false;
 
@@ -26,7 +27,22 @@ public class VisualNovelControler : MonoBehaviour
         objectOutFade = GameObject.Find("CharSet").GetComponent<ObjectOutFade>();
         dialControl = GameObject.Find("ObjectSetOb").GetComponent<DialogueControler>();
         textCon = GameObject.Find("TextManager").GetComponent<TextControler>();
+        CharCon = GetComponent<CharacetObControler>();
         dataSet = GetComponent<VisualSet>();
+    }
+
+    public void Start()
+    {
+        CharCon.CreaterCharacetOb();
+        CharCon.SetPos(0);
+        CharCon.SetPos(1);
+        StartCoroutine("DelOB");
+    }
+
+    IEnumerator DelOB()
+    {
+        yield return new WaitForSeconds(3f);
+        CharCon.CharDel();
     }
 
     public bool UpdateDialogue()
