@@ -106,6 +106,9 @@
     <Compile Include="Assets\Script\VisualModuel\TextData\TextControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\ObjectSetPosition.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextPositionSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\BackGround\InstBackGround.cs" />
+    <Compile Include="Assets\Script\VisualModuel\BackGround\BackSpriteOb.cs" />
+    <Compile Include="Assets\Script\VisualModuel\BackGround\BackSPriteSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
