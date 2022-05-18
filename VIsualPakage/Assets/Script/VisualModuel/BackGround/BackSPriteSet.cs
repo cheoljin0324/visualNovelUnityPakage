@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class BackSPriteSet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void BackSpriteSet(GameObject backSpriteRend, Sprite spriteSet)
     {
-        
+        backSpriteRend.GetComponent<SpriteRenderer>().sprite = spriteSet;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

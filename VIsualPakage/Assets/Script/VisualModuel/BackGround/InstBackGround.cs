@@ -6,14 +6,12 @@ public class InstBackGround : MonoBehaviour
 {
     BackSpriteOb backOb;
 
-    GameObject backGround;
-
     void Awake()
     {
         backOb = GetComponent<BackSpriteOb>();
     }
 
-    public void InstantBak()
+    public void InstantBack(GameObject backGround)
     {
         backGround = Instantiate(backOb.backGameOB);
     }
