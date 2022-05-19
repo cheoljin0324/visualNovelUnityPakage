@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
+//사용되는 데이터 구조체 정의
 [System.Serializable]
 public struct DialogueIs
 {
@@ -60,18 +60,6 @@ public struct EventSet
 }
 
 
-[System.Serializable]
-public struct BackSprite
-{
-    [Header("사용할 배경")]
-    public Sprite backSprite;
-
-    [Header("배경 렌더러")]
-    public SpriteRenderer spriteRenderer;
-
-    [Header("문자열")]
-    public string backName;
-}
 
 [System.Serializable]
 public struct SimCharacter

@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 504391385}
   - component: {fileID: 504391384}
   - component: {fileID: 504391387}
-  - component: {fileID: 504391388}
   m_Layer: 0
   m_Name: ChapterOne
   m_TagString: Untagged
@@ -168,7 +167,7 @@ MonoBehaviour:
     nowMent: 0
     zoom: 0
     isAngry: 0
-    backName: 0
+    backName: 1
     audioClip: {fileID: 0}
     EventCGSprite: 0
   - dialogueEvent: 0
@@ -199,7 +198,6 @@ MonoBehaviour:
     backName: 0
     audioClip: {fileID: 0}
     EventCGSprite: 0
-  backSprite: []
   simChar:
   - Name: "\uC548\uB18D"
     charSprite:
@@ -226,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFade: 0
+  isBack: 0
 --- !u!4 &504391386
 Transform:
   m_ObjectHideFlags: 0
@@ -241,18 +240,6 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &504391387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504391383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9af9731615cba34d853c1b81f29d970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &504391388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,7 +412,6 @@ GameObject:
   - component: {fileID: 662281627}
   - component: {fileID: 662281626}
   - component: {fileID: 662281625}
-  - component: {fileID: 662281624}
   m_Layer: 0
   m_Name: ChapterOne (1)
   m_TagString: Untagged
@@ -433,18 +419,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &662281624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662281623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9af9731615cba34d853c1b81f29d970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &662281625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,7 +456,7 @@ MonoBehaviour:
     nowMent: 0
     zoom: 0
     isAngry: 0
-    backName: 0
+    backName: 1
     audioClip: {fileID: 0}
     EventCGSprite: 0
   - dialogueEvent: 0
@@ -513,7 +487,6 @@ MonoBehaviour:
     backName: 0
     audioClip: {fileID: 0}
     EventCGSprite: 0
-  backSprite: []
   simChar:
   - Name: "\uC548\uB18D"
     charSprite:
@@ -540,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFade: 0
+  isBack: 0
 --- !u!4 &662281628
 Transform:
   m_ObjectHideFlags: 0
@@ -1026,6 +1000,7 @@ GameObject:
   - component: {fileID: 1600500775}
   - component: {fileID: 1600500774}
   - component: {fileID: 1600500773}
+  - component: {fileID: 1600500778}
   m_Layer: 0
   m_Name: BackSprite
   m_TagString: Untagged
@@ -1045,6 +1020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73314af1459f45a4c8aa32ac90e52a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BackOBject: []
 --- !u!114 &1600500774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b196496d3ec51041b684a4f5775bc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backGameOB: {fileID: 0}
+  backGameOB: {fileID: 7706255062556822008, guid: ba7b24968749be94184e0499a5afe9a6, type: 3}
 --- !u!114 &1600500775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,11 +1067,26 @@ Transform:
   m_GameObject: {fileID: 1600500772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4486752, y: -1.0276042, z: -15.148258}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600500778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600500772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e731b962fe0504440835506b6aebb1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backSprite:
+  - {fileID: 21300000, guid: 296939c899e0b224fa1c04d86c7fb3cc, type: 3}
+  - {fileID: 21300000, guid: cb3aedbd6f8f3254c9dc2542f50cbdbb, type: 3}
 --- !u!1 &2076669761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1098,7 @@ GameObject:
   - component: {fileID: 2076669763}
   - component: {fileID: 2076669762}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DialFlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1126,7 +1117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vi: {fileID: 504391385}
-  vi2: {fileID: 662281627}
 --- !u!4 &2076669763
 Transform:
   m_ObjectHideFlags: 0
