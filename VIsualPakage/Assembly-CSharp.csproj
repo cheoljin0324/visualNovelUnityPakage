@@ -93,6 +93,7 @@
     <Compile Include="Assets\Script\PlayerData.cs" />
     <Compile Include="Assets\Script\LoadScreen.cs" />
     <Compile Include="Assets\Script\FadeObject.cs" />
+    <Compile Include="Assets\Script\VisualModuel\EventCG\EventCreate.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\ObjectOutFade.cs" />
     <Compile Include="Assets\Script\VisualModuel\Example\VisualNovelReReady.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\Effect.cs" />
@@ -103,15 +104,17 @@
     <Compile Include="Assets\Script\VisualModuel\BackGround\InstBackGround.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetStandCG.cs" />
     <Compile Include="Assets\Script\VisualNovel.cs" />
+    <Compile Include="Assets\Script\VisualModuel\EventCG\EventCGControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\DialDataSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\DialFlow.cs" />
+    <Compile Include="Assets\Script\VisualModuel\EventCG\EventSpriteSet.cs" />
     <Compile Include="Assets\Script\DialgoueManager.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextSizeSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\CharacterObjectSpriteSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\ObjectSetPosition.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextPositionSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\EventCG\EventCGControler.cs" />
+    <Compile Include="Assets\Script\VisualModuel\EventCG\OnOffCG.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Readme\Readme.txt" />

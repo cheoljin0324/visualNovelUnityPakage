@@ -4,15 +4,52 @@ using UnityEngine;
 
 public class EventCGControler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    OnOffCG SetObject;
+    EventSpriteSet eventSpriteSet;
+    EventCreate InstEvent;
+    VisualSet dataSet;
+
+    private void Awake()
     {
-        
+        SetObject = GetComponent<OnOffCG>();
+        eventSpriteSet = GetComponent<EventSpriteSet>();
+        InstEvent = GetComponent<EventCreate>();
+        dataSet = GetComponent<VisualSet>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnEventCG(int index)
     {
-        
+        if(dataSet.dialogue[dataSet.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.EventCG)
+        {
+            SetObject.OnCGIN(index);
+        }
+
+    }
+
+    public void OffEventCG(int index)
+    {
+        if (dataSet.dialogue[dataSet.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.EventCG)
+        {
+            SetObject.OffCgOut(index);
+        }
+
+    }
+
+    public void eventSpriteSets()
+    {
+        if (dataSet.dialogue[dataSet.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.EventCG)
+        {
+            eventSpriteSet.SpriteSet();
+        }
+
+    }
+
+    public void CreateEvent()
+    {
+        if (dataSet.dialogue[dataSet.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.EventCG)
+        {
+            InstEvent.CreateEvent();
+        }
+
     }
 }

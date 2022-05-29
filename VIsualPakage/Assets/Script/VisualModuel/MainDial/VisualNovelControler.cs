@@ -16,6 +16,8 @@ public class VisualNovelControler : MonoBehaviour
     CharacetObControler CharCon;
     BackControl backCon;
 
+    EventCGControler EventControler;
+
     //페이드 중인가?(Y/N) 기본 값은 N
     public bool isFade = false;
     public int isBack = 0;
@@ -29,6 +31,12 @@ public class VisualNovelControler : MonoBehaviour
         backCon = GameObject.Find("BackSprite").GetComponent<BackControl>();
         CharCon = GetComponent<CharacetObControler>();
         dataSet = GetComponent<VisualSet>();
+        EventControler = GetComponent<EventCGControler>();
+    }
+
+    private void Start()
+    {
+       
     }
 
 
@@ -49,6 +57,9 @@ public class VisualNovelControler : MonoBehaviour
         //만약 첫번째 로그일때
         if (dataSet.isFirst == true)
         {
+            EventControler.CreateEvent();
+            EventControler.eventSpriteSets();
+            EventControler.OnEventCG(dataSet.dialogue[dataSet.currentDialogueIndex].EventCGSprite);
             //초기 배경 전부 생성 및 스프라이트 초기화
             backCon.BackInstantiate();
             backCon.backSpriteSet();
@@ -117,11 +128,20 @@ public class VisualNovelControler : MonoBehaviour
     /// </summary>
     public void SetNextDialogue()
     {
+        if (dataSet.isFirst == false)
+        {
+            EventControler.OffEventCG(dataSet.dialogue[dataSet.currentDialogueIndex].EventCGSprite);
+        }
+           
         //만약 첫번째 다이얼로그가 아니라면
         if (dataSet.isFirst == false)
         {
             //다이얼로그를 1++
             dataSet.currentDialogueIndex++;
+            if(dataSet.isFirst==false&&dataSet.dialogue[dataSet.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.EventCG)
+            {
+                EventControler.OnEventCG(dataSet.dialogue[dataSet.currentDialogueIndex].EventCGSprite);
+            }
 
             //만약 배경이 다를 경우
             if(dataSet.dialogue[dataSet.currentDialogueIndex - 1].backName!= dataSet.dialogue[dataSet.currentDialogueIndex].backName)
