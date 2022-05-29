@@ -34,11 +34,6 @@ public class VisualNovelControler : MonoBehaviour
         EventControler = GetComponent<EventCGControler>();
     }
 
-    private void Start()
-    {
-       
-    }
-
 
     /// <summary>
     /// 캐릭터 삭제
