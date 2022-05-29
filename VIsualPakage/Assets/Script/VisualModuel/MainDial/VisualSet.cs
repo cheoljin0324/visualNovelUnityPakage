@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class VisualSet : MonoBehaviour
 {
+
     //사용되는 데이터 SET 초기화
     public EventSet[] eventSet;
     public DialogueIs[] dialogue;

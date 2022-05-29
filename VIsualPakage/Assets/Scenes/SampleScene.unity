@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSet: []
   dialogue:
-  - dialogueEvent: 0
+  - dialogueEvent: 1
     DialogueData: dd
     charSet:
     - charNumber: 1
@@ -648,8 +648,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namefontSize: 70
   dialfontSize: 50
-  NameImSize: {x: 733.07, y: 169.09}
-  DialImSize: {x: 1456.08, y: 246.73}
+  NameImSize: {x: 650, y: 169.09}
+  DialImSize: {x: 1300, y: 246.73}
 --- !u!114 &711912795
 MonoBehaviour:
   m_ObjectHideFlags: 0

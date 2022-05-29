@@ -99,6 +99,7 @@
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\ScriptControler.cs" />
     <Compile Include="Assets\Script\사용법.cs" />
     <Compile Include="Assets\Script\VisualModuel\BackGround\BackControl.cs" />
+    <Compile Include="Assets\Script\VisualModuel\BackGround\BackSpriteDB.cs" />
     <Compile Include="Assets\Script\VisualModuel\BackGround\InstBackGround.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetStandCG.cs" />
     <Compile Include="Assets\Script\VisualNovel.cs" />
@@ -110,7 +111,7 @@
     <Compile Include="Assets\Script\VisualModuel\TextData\TextControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\ObjectSetPosition.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextPositionSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\BackGround\BackSpriteDB.cs" />
+    <Compile Include="Assets\Script\VisualModuel\EventCG\EventCGControler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Readme\Readme.txt" />

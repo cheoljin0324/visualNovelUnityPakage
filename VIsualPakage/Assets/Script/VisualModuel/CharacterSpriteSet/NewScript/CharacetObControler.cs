@@ -35,11 +35,14 @@ public class CharacetObControler : MonoBehaviour
     /// </summary>
     public void CreaterCharacetOb()
     {
-        //데이터의 다이얼로그 데이터 값 만큼 캐릭터를 생성 후 스프라이트를 초기화
-        for(int i = 0; i<dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+        if(dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
         {
-            InstChar.InstantiateObject(dataset.simChar[dataset.dialogue[dataset.currentDialogueIndex].charSet[i].charNumber].charSprite.Length,CharGroup);
-            dialSpriteSet.SpriteSet(CharGroup[i], dataset.simChar[dataset.dialogue[dataset.currentDialogueIndex].charSet[i].charNumber].charSprite);
+            //데이터의 다이얼로그 데이터 값 만큼 캐릭터를 생성 후 스프라이트를 초기화
+            for (int i = 0; i < dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+            {
+                InstChar.InstantiateObject(dataset.simChar[dataset.dialogue[dataset.currentDialogueIndex].charSet[i].charNumber].charSprite.Length, CharGroup);
+                dialSpriteSet.SpriteSet(CharGroup[i], dataset.simChar[dataset.dialogue[dataset.currentDialogueIndex].charSet[i].charNumber].charSprite);
+            }
         }
     }
 
@@ -48,9 +51,12 @@ public class CharacetObControler : MonoBehaviour
     /// </summary>
     public void EmotionSprite()
     {
-        for(int i = 0; i<dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+        if (dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
         {
-            dialSpriteSet.SpriteSet(CharGroup[i], dataset.simChar[dataset.dialogue[dataset.currentDialogueIndex].charSet[i].charNumber].charSprite);
+            for (int i = 0; i < dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+            {
+                dialSpriteSet.SpriteSet(CharGroup[i], dataset.simChar[dataset.dialogue[dataset.currentDialogueIndex].charSet[i].charNumber].charSprite);
+            }
         }
     }
 
@@ -59,14 +65,18 @@ public class CharacetObControler : MonoBehaviour
     /// </summary>
     public void EmotionFade()
     {
-        for(int i = 0; i<dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+        if (dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
         {
-            if(dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion != dataset.dialogue[dataset.currentDialogueIndex-1].charSet[i].Emotion)
+            for (int i = 0; i < dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
             {
-                CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex-1].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(0f, 0.1f);
-                CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(1f, 0.2f);
+                if (dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion != dataset.dialogue[dataset.currentDialogueIndex - 1].charSet[i].Emotion)
+                {
+                    CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex - 1].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(0f, 0.1f);
+                    CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(1f, 0.2f);
+                }
             }
         }
+          
     }
 
     /// <summary>
@@ -74,10 +84,14 @@ public class CharacetObControler : MonoBehaviour
     /// </summary>
     public void DelFade()
     {
-        for (int i = 0; i < dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+        if (dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
         {
-            CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(0f, 1f);
+            for (int i = 0; i < dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+            {
+                CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(0f, 1f);
+            }
         }
+        
     }
 
     /// <summary>
@@ -85,10 +99,14 @@ public class CharacetObControler : MonoBehaviour
     /// </summary>
     public void CreateFade()
     {
-        for(int i = 0; i<dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+        if (dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
         {
-            CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(1f, 1f);
+            for (int i = 0; i < dataset.dialogue[dataset.currentDialogueIndex].charSet.Length; i++)
+            {
+                CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(1f, 1f);
+            }
         }
+          
     }
 
     /// <summary>
@@ -96,10 +114,14 @@ public class CharacetObControler : MonoBehaviour
     /// </summary>
     public void CharDel()
     {
-        for(int i = 0; i<CharGroup.Count; i++)
+        if (dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
         {
-            deleteObject.DeleteOB(CharGroup[i]);
+            for (int i = 0; i < CharGroup.Count; i++)
+            {
+                deleteObject.DeleteOB(CharGroup[i]);
+            }
         }
+          
     }
 
     /// <summary>
@@ -107,17 +129,21 @@ public class CharacetObControler : MonoBehaviour
     /// </summary>
     public void TransPos()
     {
-        for(int i = 0; i<dataset.dialogue[dataset.currentDialogueIndex].charintPos.Length; i++)
+        if (dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
         {
-            if (dataset.dialogue[dataset.currentDialogueIndex].charintPos[i] != dataset.dialogue[dataset.currentDialogueIndex - 1].charintPos[i])
+            for (int i = 0; i < dataset.dialogue[dataset.currentDialogueIndex].charintPos.Length; i++)
             {
-                CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex - 1].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(0f, 0.5f);
-                for(int j = 0; j<CharGroup[i].Count; i++)
+                if (dataset.dialogue[dataset.currentDialogueIndex].charintPos[i] != dataset.dialogue[dataset.currentDialogueIndex - 1].charintPos[i])
                 {
-                    StartCoroutine(TransposN(j));
+                    CharGroup[i][dataset.dialogue[dataset.currentDialogueIndex - 1].charSet[i].Emotion].GetComponent<SpriteRenderer>().DOFade(0f, 0.5f);
+                    for (int j = 0; j < CharGroup[i].Count; i++)
+                    {
+                        StartCoroutine(TransposN(j));
+                    }
                 }
             }
         }
+           
     }
 
     /// <summary>
@@ -137,13 +163,16 @@ public class CharacetObControler : MonoBehaviour
     /// <param name="SetNum"></param>
     public void SetPos(int SetNum)
     {
-        
-            for(int j = 0; j<CharGroup[SetNum].Count; j++)
+        if (dataset.dialogue[dataset.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.NormalDial)
+        {
+            for (int j = 0; j < CharGroup[SetNum].Count; j++)
             {
                 charPos.SetPosition(dataset.dialogue[dataset.currentDialogueIndex].charintPos[SetNum], CharGroup[SetNum][j]);
             }
 
-        
-        
+
+
+        }
+
     }
 }
