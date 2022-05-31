@@ -85,6 +85,7 @@
     <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SetPosition.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialogueCLS.cs" />
+    <Compile Include="Assets\Script\VisualModuel\EventCG\OnOffCG.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\VisualNovelControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\ObjectControler.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialougeFlow.cs" />
@@ -114,7 +115,9 @@
     <Compile Include="Assets\Script\VisualModuel\TextData\TextControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\ObjectSetPosition.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextPositionSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\EventCG\OnOffCG.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\SelectionObjectElement.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\SelectionDataSetting.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\SelectObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Readme\Readme.txt" />

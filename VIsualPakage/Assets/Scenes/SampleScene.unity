@@ -173,6 +173,13 @@ MonoBehaviour:
     EventCG: {fileID: 21300000, guid: cb3aedbd6f8f3254c9dc2542f50cbdbb, type: 3}
     Arrow: {fileID: 0}
     CGName: 0
+  - eventRenderer: {fileID: 0}
+    dialogueEvent: {fileID: 0}
+    nameText: {fileID: 0}
+    dialText: {fileID: 0}
+    EventCG: {fileID: 21300000, guid: b272e2c4ad8afce469755f8a44d893b5, type: 3}
+    Arrow: {fileID: 0}
+    CGName: 0
   dialogue:
   - dialogueEvent: 1
     DialogueData: dd
@@ -183,11 +190,11 @@ MonoBehaviour:
       Emotion: 0
     charintPos: 0100000002000000
     nowMent: 0
-    zoom: 0
+    zoom: 1
     isAngry: 0
     backName: 1
     audioClip: {fileID: 0}
-    EventCGSprite: 0
+    EventCGSprite: 2
   - dialogueEvent: 1
     DialogueData: dafagqbqbgkqanvkancvajvnavavasdada
     charSet:
@@ -700,8 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede7aa1de0a988b4797610e954a5d0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NamePosition: {x: -377, y: -235, z: 0}
-  DialPosition: {x: -15.495, y: -341, z: 0}
+  NamePosition: {x: -377, y: -200, z: 0}
+  DialPosition: {x: -15.495, y: -300, z: 0}
 --- !u!114 &711912794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,6 +762,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f8dea37ae152d4b81f74366c761745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &721587383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721587385}
+  - component: {fileID: 721587384}
+  m_Layer: 0
+  m_Name: Selection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &721587384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721587383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9619f785edabc30428dbbc24cdfc945c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectButtonObject: {fileID: 0}
+  newPos:
+  - SetPos:
+    - {x: 0, y: 0, z: 0}
+  - SetPos:
+    - {x: 0, y: 0, z: 0}
+--- !u!4 &721587385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721587383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9689163, y: -0.2136544, z: -10.415229}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918529021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backSprite:
   - {fileID: 21300000, guid: 296939c899e0b224fa1c04d86c7fb3cc, type: 3}
-  - {fileID: 21300000, guid: cb3aedbd6f8f3254c9dc2542f50cbdbb, type: 3}
+  - {fileID: 21300000, guid: 6b7a2325beceb274683878c3f6529c49, type: 3}
 --- !u!1 &2076669761
 GameObject:
   m_ObjectHideFlags: 0
