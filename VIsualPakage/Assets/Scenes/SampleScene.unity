@@ -181,7 +181,7 @@ MonoBehaviour:
     Arrow: {fileID: 0}
     CGName: 0
   dialogue:
-  - dialogueEvent: 1
+  - dialogueEvent: 0
     DialogueData: dd
     charSet:
     - charNumber: 1
@@ -195,7 +195,7 @@ MonoBehaviour:
     backName: 1
     audioClip: {fileID: 0}
     EventCGSprite: 2
-  - dialogueEvent: 1
+  - dialogueEvent: 0
     DialogueData: dafagqbqbgkqanvkancvajvnavavasdada
     charSet:
     - charNumber: 1
@@ -209,20 +209,6 @@ MonoBehaviour:
     backName: 0
     audioClip: {fileID: 0}
     EventCGSprite: 1
-  - dialogueEvent: 1
-    DialogueData: dd
-    charSet:
-    - charNumber: 1
-      Emotion: 1
-    - charNumber: 0
-      Emotion: 0
-    charintPos: 0100000002000000
-    nowMent: 0
-    zoom: 0
-    isAngry: 0
-    backName: 0
-    audioClip: {fileID: 0}
-    EventCGSprite: 0
   simChar:
   - Name: "\uC548\uB18D"
     charSprite:
@@ -791,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9619f785edabc30428dbbc24cdfc945c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectButtonObject: {fileID: 0}
+  SelectButtonObject: {fileID: 5181404307395457464, guid: e59a91dd968056646b913648a89b4d58, type: 3}
   newPos:
   - SetPos:
     - {x: 0, y: 0, z: 0}
@@ -1211,6 +1197,93 @@ MonoBehaviour:
   backSprite:
   - {fileID: 21300000, guid: 296939c899e0b224fa1c04d86c7fb3cc, type: 3}
   - {fileID: 21300000, guid: 6b7a2325beceb274683878c3f6529c49, type: 3}
+--- !u!1 &1831018675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831018679}
+  - component: {fileID: 1831018678}
+  - component: {fileID: 1831018677}
+  - component: {fileID: 1831018676}
+  - component: {fileID: 1831018680}
+  m_Layer: 0
+  m_Name: Selection1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1831018676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831018675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63302e64ce8da24e9b5c167a021c545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1831018677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831018675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80703cd9f8d111418e7e9e158cfaa00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionList:
+  - "\uC548\uB155\uD558\uC138\uC694"
+--- !u!114 &1831018678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831018675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f246bcf461b91004fbe019ca4f6a9f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectObjectList: []
+--- !u!4 &1831018679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831018675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 739.9453, y: 469.60852, z: -97.139305}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1831018680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831018675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd3302189e8364408b808245b9f1dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obEle: {fileID: 0}
+  dataSet: {fileID: 0}
 --- !u!1 &2076669761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vi: {fileID: 504391385}
+  flow: {fileID: 1831018676}
 --- !u!4 &2076669763
 Transform:
   m_ObjectHideFlags: 0

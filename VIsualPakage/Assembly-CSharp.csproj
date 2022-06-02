@@ -60,6 +60,7 @@
     <Compile Include="Assets\SelectScreen.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\CharacterObjectSet.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\MonoSingleton.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\SelectionObjectElement.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\ResourcesFolder\SayScript.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\VisualSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\dialogueSet\DialogueControler.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Script\VisualModuel\MainDial\ObjectControler.cs" />
     <Compile Include="Assets\Script\NewVisualNovelFlow\DialougeFlow.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\NameDataSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\SelectObject.cs" />
     <Compile Include="Assets\Script\VisualModuel\MainDial\ObjectSet.cs" />
     <Compile Include="Assets\Script\PlayerData.cs" />
     <Compile Include="Assets\Script\LoadScreen.cs" />
@@ -112,12 +114,12 @@
     <Compile Include="Assets\Script\DialgoueManager.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextSizeSet.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\CharacterObjectSpriteSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\SelectionDataSetting.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextControler.cs" />
     <Compile Include="Assets\Script\VisualModuel\CharacterSpriteSet\BeforeScript\ObjectSetPosition.cs" />
     <Compile Include="Assets\Script\VisualModuel\TextData\TextPositionSet.cs" />
-    <Compile Include="Assets\Script\VisualModuel\Selection\SelectionObjectElement.cs" />
-    <Compile Include="Assets\Script\VisualModuel\Selection\SelectionDataSetting.cs" />
-    <Compile Include="Assets\Script\VisualModuel\Selection\SelectObject.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\TextDataSet.cs" />
+    <Compile Include="Assets\Script\VisualModuel\Selection\SelectDataFlow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Readme\Readme.txt" />
