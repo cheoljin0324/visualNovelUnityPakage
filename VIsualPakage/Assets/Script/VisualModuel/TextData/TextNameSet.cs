@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TextNameSet : MonoBehaviour
 {
     TextObject texting;
+    [HideInInspector]
     public GameObject NameTextN;
 
     private void Awake()

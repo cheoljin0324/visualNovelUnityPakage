@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("DialoguePackage/EventCGSetting")]
+[RequireComponent(typeof(EventCreate))]
+[RequireComponent(typeof(EventSpriteSet))]
+[RequireComponent(typeof(OnOffCG))]
+
 public class EventCGControler : MonoBehaviour
 {
     OnOffCG SetObject;

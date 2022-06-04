@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+[AddComponentMenu("DialoguePackage/NormalVisualNoveSetting")]
+[RequireComponent(typeof(VisualNovelControler))]
+[RequireComponent(typeof(CharacetObControler))]
 
 public class VisualSet : MonoBehaviour
 {

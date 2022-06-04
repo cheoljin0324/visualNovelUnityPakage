@@ -8,7 +8,8 @@ public class TextDialogueSet : MonoBehaviour
     //텍스트 오브젝트 변수 선언
     TextObject texting;
 
-    //해당 변수를 넣어주기 위한 변수 선언
+    //해당 변수를 넣어주기 위한 변수 선언]
+    [HideInInspector]
     public GameObject DialTextN;
 
     private void Awake()

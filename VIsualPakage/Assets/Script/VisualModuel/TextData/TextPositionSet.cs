@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TextPositionSet : MonoBehaviour
 {
+    [Header("이름의 위치")]
     public Vector3 NamePosition;
+    [Header("대화형의 움직임")]
     public Vector3 DialPosition;
 
 

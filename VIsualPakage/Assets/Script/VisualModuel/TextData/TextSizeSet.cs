@@ -8,7 +8,9 @@ public class TextSizeSet : MonoBehaviour
     TextNameSet nameset;
     TextDialogueSet dialset;
 
+    [Header("이름의 폰트 사이즈")]
     public int namefontSize;
+    [Header("대화형 폰트 사이즈")]
     public int dialfontSize;
 
     [Header("이름 범위")]
