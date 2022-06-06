@@ -52,12 +52,14 @@ public class VisualNovelControler : MonoBehaviour
         //만약 첫번째 로그일때
         if (dataSet.isFirst == true)
         {
-            EventControler.CreateEvent();
-            EventControler.eventSpriteSets();
-            EventControler.OnEventCG(dataSet.dialogue[dataSet.currentDialogueIndex].EventCGSprite);
+            if (dataSet.dialogue[dataSet.currentDialogueIndex].dialogueEvent == DialogueIs.DialogueEven.EventCG)
+            {
+                EventControler.CreateEvent();
+                EventControler.eventSpriteSets();
+                EventControler.OnEventCG(dataSet.dialogue[dataSet.currentDialogueIndex].EventCGSprite);
+            }
+
             //초기 배경 전부 생성 및 스프라이트 초기화
-            backCon.BackInstantiate();
-            backCon.backSpriteSet();
             backCon.InSetting(dataSet.dialogue[dataSet.currentDialogueIndex].backName);
             //캐릭터 컨트롤러의 캐릭터 생성 함수를 실행
             CharCon.CreaterCharacetOb();
