@@ -1329,6 +1329,7 @@ MonoBehaviour:
   selectionList:
   - "\uC548\uB155\uD558\uC138\uC694"
   - 1
+  useBack: 0
 --- !u!114 &1831018678
 MonoBehaviour:
   m_ObjectHideFlags: 0

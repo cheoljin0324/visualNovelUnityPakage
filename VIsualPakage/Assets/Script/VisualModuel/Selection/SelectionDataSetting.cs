@@ -6,5 +6,5 @@ public class SelectionDataSetting : MonoBehaviour
 {
     [SerializeField]
     public List<string> selectionList;
-
+    public int useBack;
 }
