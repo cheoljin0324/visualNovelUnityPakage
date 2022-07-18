@@ -120,6 +120,7 @@
     <Compile Include="Assets\Script\MainVisual\TextData\TextControler.cs" />
     <Compile Include="Assets\Script\MainVisual\CharacterSpriteSet\BeforeScript\ObjectSetPosition.cs" />
     <Compile Include="Assets\Script\MainVisual\TextData\TextPositionSet.cs" />
+    <Compile Include="Assets\Script\MainVisual\MainDial\EffectControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Readme\Readme.txt" />

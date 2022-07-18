@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [AddComponentMenu("DialoguePackage/NormalVisualNoveSetting")]
 [RequireComponent(typeof(VisualNovelControler))]
 [RequireComponent(typeof(CharacetObControler))]
+[RequireComponent(typeof(EffectControl))]
 
 public class VisualSet : MonoBehaviour
 {

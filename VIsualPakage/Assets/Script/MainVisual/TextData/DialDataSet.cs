@@ -31,6 +31,7 @@ public class DialDataSet : MonoBehaviour
         StartCoroutine("Typing", Dial);
     }
 
+
     IEnumerator Typing(string Dial)
     {
         //타이핑 갯수를 카운트할 인덱스 변수 생성

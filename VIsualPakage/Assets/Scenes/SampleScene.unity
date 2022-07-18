@@ -190,8 +190,8 @@ MonoBehaviour:
       Emotion: 0
     charintPos: 0100000002000000
     nowMent: 0
-    zoom: 1
-    isAngry: 0
+    zoom: 0
+    isAngry: 1
     backName: 1
     audioClip: {fileID: 0}
     EventCGSprite: 2
@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bcbbf92f3bbe443b6bf0fdaad0b1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isangry: 0
   isFade: 0
   isBack: 0
 --- !u!4 &504391386
@@ -573,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bcbbf92f3bbe443b6bf0fdaad0b1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isangry: 0
   isFade: 0
   isBack: 0
 --- !u!4 &662281628
@@ -784,6 +786,10 @@ MonoBehaviour:
   - SetPos:
     - {x: 0, y: 100, z: 0}
     - {x: 0, y: -100, z: 0}
+  - SetPos:
+    - {x: 0, y: 100, z: 0}
+    - {x: 0, y: -100, z: 0}
+    - {x: 0, y: -200, z: 0}
 --- !u!4 &721587385
 Transform:
   m_ObjectHideFlags: 0
@@ -1081,100 +1087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9a8d26bafbe3574cb99a65854b22450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1115760323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1115760327}
-  - component: {fileID: 1115760326}
-  - component: {fileID: 1115760325}
-  - component: {fileID: 1115760324}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1115760324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115760323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e753a27b7f858c84fabd2a310b783783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventSet: []
-  dialogue:
-  - dialogueEvent: 0
-    DialogueData: "\uC548\uB2C8\uC601"
-    charSet:
-    - charNumber: 0
-      Emotion: 0
-    charintPos: 01000000
-    nowMent: 0
-    zoom: 0
-    isAngry: 0
-    backName: 2
-    audioClip: {fileID: 0}
-    EventCGSprite: 0
-  simChar:
-  - Name: "\uAE40\uCCA0\uC9C4"
-    charSprite:
-    - {fileID: 21300000, guid: 9d5c1f3de11d53b4aae4b30872f8bf8a, type: 3}
-  isFirst: 1
-  isLastDial: 0
-  isFade: 0
-  currentDialogueIndex: 0
-  currentCharIndex: 0
---- !u!114 &1115760325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115760323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9af9731615cba34d853c1b81f29d970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1115760326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115760323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bcbbf92f3bbe443b6bf0fdaad0b1b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFade: 0
-  isBack: 0
---- !u!4 &1115760327
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115760323}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02491489, y: -0.6758724, z: -13.772697}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1478558570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1336,7 @@ MonoBehaviour:
   selectionList:
   - "\uC548\uB155\uD558\uC138\uC694"
   - 1
+  - 2
   useBack: 0
 --- !u!114 &1831018678
 MonoBehaviour:
@@ -1502,7 +1415,12 @@ MonoBehaviour:
   vi: {fileID: 504391385}
   flow: {fileID: 1831018676}
   vi2: {fileID: 2097074261}
-  v3: {fileID: 1115760326}
+  v3: {fileID: 0}
+  vA:
+  - {fileID: 504391385}
+  - {fileID: 504391385}
+  - {fileID: 504391385}
+  - {fileID: 504391385}
 --- !u!4 &2076669763
 Transform:
   m_ObjectHideFlags: 0
@@ -1595,6 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bcbbf92f3bbe443b6bf0fdaad0b1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isangry: 0
   isFade: 0
   isBack: 0
 --- !u!4 &2097074262

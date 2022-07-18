@@ -14,6 +14,9 @@ public class DialFlow : MonoBehaviour
     [SerializeField]
     VisualNovelControler v3;
 
+    [SerializeField]
+    VisualNovelControler[] vA;
+
     BackControl backCon;
     void Awake()
     {
@@ -39,10 +42,15 @@ public class DialFlow : MonoBehaviour
             Debug.Log(1);
             yield return new WaitUntil(() => v3.UpdateDialogue());
         }
-        else
+        else if(flow.result ==2)
         {
             Debug.Log(2);
             yield return new WaitUntil(() => vi2.UpdateDialogue());
+        }
+        else
+        {
+            Debug.Log(3);
+            yield return new WaitUntil(() => v3.UpdateDialogue());
         }
 
     }

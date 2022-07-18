@@ -15,8 +15,10 @@ public class VisualNovelControler : MonoBehaviour
     //캐릭터 관리자
     CharacetObControler CharCon;
     BackControl backCon;
-
+    EffectControl effectControl;
     EventCGControler EventControler;
+
+    public bool isangry = false;
 
     //페이드 중인가?(Y/N) 기본 값은 N
     public bool isFade = false;
@@ -32,6 +34,7 @@ public class VisualNovelControler : MonoBehaviour
         CharCon = GetComponent<CharacetObControler>();
         dataSet = GetComponent<VisualSet>();
         EventControler = GetComponent<EventCGControler>();
+        effectControl = GetComponent<EffectControl>();
     }
 
 
